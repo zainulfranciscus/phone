@@ -1,4 +1,4 @@
-package org.aconex.phone.datasource;
+package org.aconex.phone.reader;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.io.FileReader;
 /**
  * Created by Lenovo on 11/03/2015.
  */
-public abstract class FileBasedDictionaryProvider implements DictionaryProvider{
+public abstract class FileBasedDictionaryReader implements DictionaryReader {
 
     @Override
     public DictionaryIterator iterator() throws Exception {

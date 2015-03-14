@@ -1,4 +1,4 @@
-package org.aconex.phone.datasource;
+package org.aconex.phone.reader;
 
 import java.io.*;
 import java.util.Iterator;

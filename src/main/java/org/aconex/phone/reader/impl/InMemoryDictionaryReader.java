@@ -1,19 +1,16 @@
-package org.aconex.phone.datasource.impl;
+package org.aconex.phone.reader.impl;
 
-import org.aconex.phone.datasource.DictionaryIterator;
-import org.aconex.phone.datasource.DictionaryProvider;
+import org.aconex.phone.reader.DictionaryIterator;
+import org.aconex.phone.reader.DictionaryReader;
 
-import java.io.BufferedReader;
 import java.io.Closeable;
-import java.io.Reader;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Lenovo on 10/03/2015.
  */
-public class InMemoryDictionaryProvider implements DictionaryProvider {
+public class InMemoryDictionaryReader implements DictionaryReader {
 
     List<String> words = new ArrayList<String>();
 

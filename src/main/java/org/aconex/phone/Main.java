@@ -1,13 +1,13 @@
 package org.aconex.phone;
 
-import org.aconex.phone.datasource.DictionaryProvider;
-import org.aconex.phone.datasource.impl.ClassLoaderDictionaryProvider;
-import org.aconex.phone.datasource.impl.FileDictionaryProvider;
+import org.aconex.phone.reader.DictionaryReader;
+import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
+import org.aconex.phone.reader.impl.FileDictionaryReader;
 import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
-import org.aconex.phone.service.PhoneNumberConverterService;
-import org.aconex.phone.service.impl.PhoneNumberConverterServiceImpl;
+import org.aconex.phone.service.PhoneNumberEncoderService;
+import org.aconex.phone.service.impl.PhoneNumberEncoderServiceImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,9 +33,9 @@ public class Main {
         String phoneNumber = main.phoneNumberFromCommandLineArgs(userInput);
         String dictionary = main.nameOfDictionaryFromCommandLineArgs(userInput);
 
-        PhoneNumberConverterService phoneNumberConverterService = new PhoneNumberConverterServiceImpl();
-        phoneNumberConverterService.setDictionaryRepository(main.getDictionaryRepository(dictionary));
-        SortedSet<String> encodedPhoneNumbers = phoneNumberConverterService.encode(phoneNumber);
+        PhoneNumberEncoderService phoneNumberEncoderService = new PhoneNumberEncoderServiceImpl();
+        phoneNumberEncoderService.setDictionaryRepository(main.getDictionaryRepository(dictionary));
+        SortedSet<String> encodedPhoneNumbers = phoneNumberEncoderService.encode(phoneNumber);
 
         for(String encodedPhoneNumber: encodedPhoneNumbers){
             System.out.println(encodedPhoneNumber);
@@ -80,10 +80,10 @@ public class Main {
         return commandLineArgs.indexOf(CMD_SWITCH_FOR_DICTIONARY);
     }
 
-    public DictionaryProvider dictionaryProvider(String dictionaryFile) {
+    public DictionaryReader dictionaryProvider(String dictionaryFile) {
 
         if(dictionaryFile != null) {
-            FileDictionaryProvider fileDictionaryProvider = new FileDictionaryProvider();
+            FileDictionaryReader fileDictionaryProvider = new FileDictionaryReader();
             fileDictionaryProvider.sourceOfData(dictionaryFile);
 
             if (fileDictionaryProvider.fileExist()) {
@@ -91,7 +91,7 @@ public class Main {
             }
         }
 
-        ClassLoaderDictionaryProvider classLoaderDictionaryProvider = new ClassLoaderDictionaryProvider();
+        ClassLoaderDictionaryReader classLoaderDictionaryProvider = new ClassLoaderDictionaryReader();
         classLoaderDictionaryProvider.sourceOfData("words.txt");
 
         return classLoaderDictionaryProvider;

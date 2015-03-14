@@ -1,9 +1,7 @@
-package org.aconex.phone.datasource;
+package org.aconex.phone.reader;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.File;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertFalse;
@@ -15,7 +13,7 @@ public abstract class FileBasedDictionaryProviderTest {
 
     public static final String DICTIONARY_FILE_THAT_EXIST = "words.txt";
     public static final String NON_EXISTING_FILE = "non_existing_file.txt";
-    FileBasedDictionaryProvider dictionaryProvider;
+    FileBasedDictionaryReader dictionaryProvider;
 
     @Before
     public void setup(){
@@ -49,5 +47,5 @@ public abstract class FileBasedDictionaryProviderTest {
 
 
 
-    public abstract FileBasedDictionaryProvider provider();
+    public abstract FileBasedDictionaryReader provider();
 }

@@ -3,7 +3,7 @@ package org.aconex.phone.service;
 
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.DictionaryWord;
-import org.aconex.phone.service.impl.PhoneNumberConverterServiceImpl;
+import org.aconex.phone.service.impl.PhoneNumberEncoderServiceImpl;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,34 +19,34 @@ import static org.mockito.Mockito.when;
 /**
  * Created by Zainul Franciscus on 3/03/2015.
  */
-public class PhoneNumberConverterServiceTest {
+public class PhoneNumberEncoderServiceTest {
 
-    private static PhoneNumberConverterService phoneNumberConverterService = new PhoneNumberConverterServiceImpl();
+    private static PhoneNumberEncoderService phoneNumberEncoderService = new PhoneNumberEncoderServiceImpl();
 
     @Test
     public void shouldRecogniseAll2ConsecutiveDigits() {
-        assertTrue(phoneNumberConverterService.has2ConsecutiveDigits("AA22CC"));
-        assertTrue(phoneNumberConverterService.has2ConsecutiveDigits("33CC"));
-        assertTrue(phoneNumberConverterService.has2ConsecutiveDigits("BB33"));
+        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("AA22CC"));
+        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("33CC"));
+        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("BB33"));
     }
 
     @Test
     public void shouldBeFalseWhenThereIsOnly1Number() {
-        assertFalse(phoneNumberConverterService.has2ConsecutiveDigits("ZZ2CC"));
-        assertFalse(phoneNumberConverterService.has2ConsecutiveDigits("3KL"));
-        assertFalse(phoneNumberConverterService.has2ConsecutiveDigits("YU3"));
+        assertFalse(phoneNumberEncoderService.has2ConsecutiveDigits("ZZ2CC"));
+        assertFalse(phoneNumberEncoderService.has2ConsecutiveDigits("3KL"));
+        assertFalse(phoneNumberEncoderService.has2ConsecutiveDigits("YU3"));
     }
 
     @Test
     public void shouldBeTrueWhenThereIsMoreThan2ConsecutiveDigits() {
-        assertTrue(phoneNumberConverterService.has2ConsecutiveDigits("XX1234CC"));
-        assertTrue(phoneNumberConverterService.has2ConsecutiveDigits("5689DDVV"));
-        assertTrue(phoneNumberConverterService.has2ConsecutiveDigits("QWER33110"));
+        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("XX1234CC"));
+        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("5689DDVV"));
+        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("QWER33110"));
     }
 
     @Test
     public void emptyPhoneNumbersShouldBeConvertedToEmptyString() throws Exception {
-        Set<String> wordFromDictionary = phoneNumberConverterService.encode("");
+        Set<String> wordFromDictionary = phoneNumberEncoderService.encode("");
         assertEquals(0, wordFromDictionary.size());
     }
 
@@ -62,8 +62,8 @@ public class PhoneNumberConverterServiceTest {
         DictionaryRepository mockDictionaryRepository = mock(DictionaryRepository.class);
         when(mockDictionaryRepository.findWordThatMatchesPhoneNumber(phoneNumber)).thenReturn(wordThatMatches46);
 
-        phoneNumberConverterService.setDictionaryRepository(mockDictionaryRepository);
-        Set<String> words = phoneNumberConverterService.encode(phoneNumber);
+        phoneNumberEncoderService.setDictionaryRepository(mockDictionaryRepository);
+        Set<String> words = phoneNumberEncoderService.encode(phoneNumber);
 
         assertEquals(1,words.size());
         assertEquals(wordThatMatchesPhoneNumber,words.iterator().next());
@@ -77,8 +77,8 @@ public class PhoneNumberConverterServiceTest {
         DictionaryRepository mockDictionaryRepository = mock(DictionaryRepository.class);
         when(mockDictionaryRepository.findWordThatMatchesPhoneNumber(phoneNumber)).thenReturn(new ArrayList<DictionaryWord>());
 
-        phoneNumberConverterService.setDictionaryRepository(mockDictionaryRepository);
-        Set<String> words = phoneNumberConverterService.encode(phoneNumber);
+        phoneNumberEncoderService.setDictionaryRepository(mockDictionaryRepository);
+        Set<String> words = phoneNumberEncoderService.encode(phoneNumber);
 
         assertEquals(1,words.size());
         assertEquals(phoneNumber,words.iterator().next());

@@ -1,8 +1,8 @@
 package org.aconex.phone;
 
-import org.aconex.phone.datasource.DictionaryProvider;
-import org.aconex.phone.datasource.impl.ClassLoaderDictionaryProvider;
-import org.aconex.phone.datasource.impl.FileDictionaryProvider;
+import org.aconex.phone.reader.DictionaryReader;
+import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
+import org.aconex.phone.reader.impl.FileDictionaryReader;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.junit.Rule;
 import org.junit.Test;
@@ -13,8 +13,8 @@ import java.io.IOException;
 
 import static junit.framework.TestCase.*;
 import static org.aconex.phone.Main.CMD_SWITCH_FOR_DICTIONARY;
-import static org.aconex.phone.datasource.FileBasedDictionaryProviderTest.NON_EXISTING_FILE;
-import static org.aconex.phone.datasource.FileDictionaryProviderTest.dictionaryForUnitTest;
+import static org.aconex.phone.reader.FileBasedDictionaryProviderTest.NON_EXISTING_FILE;
+import static org.aconex.phone.reader.FileDictionaryReaderTest.dictionaryForUnitTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
@@ -91,14 +91,14 @@ public class MainTest {
 
     @Test
     public void shouldReturnAClassLoaderProviderWhenFileDoesNotExist() {
-        DictionaryProvider dictionaryProvider = main.dictionaryProvider(NON_EXISTING_FILE);
-        assertTrue(dictionaryProvider instanceof ClassLoaderDictionaryProvider);
+        DictionaryReader dictionaryReader = main.dictionaryProvider(NON_EXISTING_FILE);
+        assertTrue(dictionaryReader instanceof ClassLoaderDictionaryReader);
     }
 
     @Test
     public void shouldReturnFileDictionaryProviderWhenFileExist() {
-        DictionaryProvider dictionaryProvider = main.dictionaryProvider(dictionaryForUnitTest());
-        assertTrue(dictionaryProvider instanceof FileDictionaryProvider);
+        DictionaryReader dictionaryReader = main.dictionaryProvider(dictionaryForUnitTest());
+        assertTrue(dictionaryReader instanceof FileDictionaryReader);
     }
 
     @Test

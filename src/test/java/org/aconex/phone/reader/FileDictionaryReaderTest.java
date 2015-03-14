@@ -1,10 +1,6 @@
-package org.aconex.phone.datasource;
+package org.aconex.phone.reader;
 
-import org.aconex.phone.datasource.impl.FileDictionaryProvider;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.io.File;
+import org.aconex.phone.reader.impl.FileDictionaryReader;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -12,12 +8,12 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Lenovo on 11/03/2015.
  */
-public class FileDictionaryProviderTest extends FileBasedDictionaryProviderTest {
+public class FileDictionaryReaderTest extends FileBasedDictionaryProviderTest {
 
-    static FileBasedDictionaryProvider provider = new FileDictionaryProvider();
+    static FileBasedDictionaryReader provider = new FileDictionaryReader();
 
     @Override
-    public FileBasedDictionaryProvider provider() {
+    public FileBasedDictionaryReader provider() {
 
 
         provider.sourceOfData(dictionaryForUnitTest());

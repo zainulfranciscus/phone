@@ -2,7 +2,7 @@ package org.aconex.phone.service.impl;
 
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.DictionaryWord;
-import org.aconex.phone.service.PhoneNumberConverterService;
+import org.aconex.phone.service.PhoneNumberEncoderService;
 
 import static org.aconex.phone.repository.DictionaryWord.*;
 
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Lenovo on 3/03/2015.
  */
-public class PhoneNumberConverterServiceImpl implements PhoneNumberConverterService {
+public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService {
 
     public static final String REGEX_TO_FIND_2_OR_MORE_CONSECUTIVE_DIGITS = "\\d{2}";
     private DictionaryRepository dictionaryRepository;

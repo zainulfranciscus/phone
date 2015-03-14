@@ -1,15 +1,13 @@
 package org.aconex.phone.repository.impl;
 
-import org.aconex.phone.datasource.DictionaryIterator;
-import org.aconex.phone.datasource.DictionaryProvider;
+import org.aconex.phone.reader.DictionaryIterator;
+import org.aconex.phone.reader.DictionaryReader;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.DictionaryWord;
 import org.aconex.phone.repository.PhoneNumberRepository;
 
 
-import java.io.File;
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * Created by Lenovo on 7/03/2015.
@@ -17,7 +15,7 @@ import java.util.stream.Stream;
 public class DictionaryRepositoryImpl implements DictionaryRepository {
 
 
-    private DictionaryProvider provider;
+    private DictionaryReader provider;
     private PhoneNumberRepository phoneNumberRepository;
 
 
@@ -43,13 +41,13 @@ public class DictionaryRepositoryImpl implements DictionaryRepository {
     }
 
     @Override
-    public void setDictionaryProvider(DictionaryProvider dictionaryProvider) {
-        provider = dictionaryProvider;
+    public void setDictionaryProvider(DictionaryReader dictionaryReader) {
+        provider = dictionaryReader;
 
     }
 
     @Override
-    public DictionaryProvider getDictionaryProvider() {
+    public DictionaryReader getDictionaryProvider() {
         return provider;
     }
 

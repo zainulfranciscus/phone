@@ -1,8 +1,8 @@
 package org.aconex.phone.repository;
 
-import org.aconex.phone.datasource.DictionaryIterator;
-import org.aconex.phone.datasource.DictionaryProvider;
-import org.aconex.phone.datasource.impl.ClassLoaderDictionaryProvider;
+import org.aconex.phone.reader.DictionaryIterator;
+import org.aconex.phone.reader.DictionaryReader;
+import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +31,7 @@ public class DictionaryRepositoryTest {
     @Test
     public void testSetDataSourceProvider() {
 
-        DictionaryProvider provider = new ClassLoaderDictionaryProvider();
+        DictionaryReader provider = new ClassLoaderDictionaryReader();
         dictionaryRepository.setDictionaryProvider(provider);
         assertEquals(provider, dictionaryRepository.getDictionaryProvider());
     }
@@ -40,7 +40,7 @@ public class DictionaryRepositoryTest {
     public void testShouldReturnWordsThatMatchesPhoneNumber() throws Exception {
 
         DictionaryIterator mockIterator = mock(DictionaryIterator.class);
-        DictionaryProvider mockProvider = mock(DictionaryProvider.class);
+        DictionaryReader mockProvider = mock(DictionaryReader.class);
         when(mockProvider.iterator()).thenReturn(mockIterator);
 
 

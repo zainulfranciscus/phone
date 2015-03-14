@@ -11,7 +11,7 @@ import java.util.SortedSet;
 /**
  * Created by Lenovo on 3/03/2015.
  */
-public interface PhoneNumberConverterService {
+public interface PhoneNumberEncoderService {
 
     void setDictionaryRepository(DictionaryRepository repository);
 

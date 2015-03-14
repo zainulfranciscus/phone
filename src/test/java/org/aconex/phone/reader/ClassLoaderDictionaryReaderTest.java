@@ -1,7 +1,6 @@
-package org.aconex.phone.datasource;
+package org.aconex.phone.reader;
 
-import org.aconex.phone.datasource.impl.ClassLoaderDictionaryProvider;
-import org.junit.Before;
+import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,12 +8,12 @@ import static org.junit.Assert.*;
 /**
  * Created by Lenovo on 10/03/2015.
  */
-public class ClassLoaderDictionaryProviderTest extends FileBasedDictionaryProviderTest{
+public class ClassLoaderDictionaryReaderTest extends FileBasedDictionaryProviderTest{
 
-    FileBasedDictionaryProvider provider = new ClassLoaderDictionaryProvider();
+    FileBasedDictionaryReader provider = new ClassLoaderDictionaryReader();
 
     @Override
-    public FileBasedDictionaryProvider provider() {
+    public FileBasedDictionaryReader provider() {
 
         provider.sourceOfData(DICTIONARY_FILE_THAT_EXIST);
         return provider;

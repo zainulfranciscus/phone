@@ -1,12 +1,9 @@
-package org.aconex.phone.datasource;
-
-import java.net.URI;
-import java.net.URISyntaxException;
+package org.aconex.phone.reader;
 
 /**
  * Created by Lenovo on 10/03/2015.
  */
-public interface DictionaryProvider {
+public interface DictionaryReader {
 
     void sourceOfData(String location);
 

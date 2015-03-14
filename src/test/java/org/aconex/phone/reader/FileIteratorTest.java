@@ -1,10 +1,9 @@
-package org.aconex.phone.datasource;
+package org.aconex.phone.reader;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 
 import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;

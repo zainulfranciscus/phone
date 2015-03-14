@@ -1,6 +1,6 @@
-package org.aconex.phone.datasource;
+package org.aconex.phone.reader;
 
-import org.aconex.phone.datasource.impl.InMemoryDictionaryProvider;
+import org.aconex.phone.reader.impl.InMemoryDictionaryReader;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,13 +10,13 @@ import static org.junit.Assert.assertNull;
 /**
  * Created by Lenovo on 10/03/2015.
  */
-public class InMemoryDictionaryProviderTest {
+public class InMemoryDictionaryReaderTest {
 
-    private DictionaryProvider inMemory;
+    private DictionaryReader inMemory;
 
     @Before
     public void setup() {
-        inMemory = new InMemoryDictionaryProvider();
+        inMemory = new InMemoryDictionaryReader();
     }
     @Test
     public void shouldReturnListOfWords() throws Exception {

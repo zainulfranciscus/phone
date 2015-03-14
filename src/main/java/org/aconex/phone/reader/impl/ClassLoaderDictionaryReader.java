@@ -1,14 +1,14 @@
-package org.aconex.phone.datasource.impl;
+package org.aconex.phone.reader.impl;
 
 import java.io.*;
 import java.net.URL;
 
-import org.aconex.phone.datasource.FileBasedDictionaryProvider;
+import org.aconex.phone.reader.FileBasedDictionaryReader;
 
 /**
  * Created by Lenovo on 10/03/2015.
  */
-public class ClassLoaderDictionaryProvider extends FileBasedDictionaryProvider {
+public class ClassLoaderDictionaryReader extends FileBasedDictionaryReader {
 
     private String fileInClasspath;
     private URL locationOfFileInClassPath;
