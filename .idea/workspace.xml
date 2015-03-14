@@ -2,28 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bfd2f7c-2abc-48fa-89a7-43ae80dfba12" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\datasource\DictionaryIterator.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/DictionaryIterator.java" />
-      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\datasource\DictionaryProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/DictionaryReader.java" />
-      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\datasource\FileBasedDictionaryProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/FileBasedDictionaryReader.java" />
-      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\datasource\FileIterator.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/FileIterator.java" />
-      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\datasource\impl\ClassLoaderDictionaryProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/impl/ClassLoaderDictionaryReader.java" />
-      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\datasource\impl\FileDictionaryProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/impl/FileDictionaryReader.java" />
-      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\datasource\impl\InMemoryDictionaryProvider.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/impl/InMemoryDictionaryReader.java" />
-      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\service\PhoneNumberConverterService.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/PhoneNumberEncoderService.java" />
-      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\service\impl\PhoneNumberConverterServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/impl/PhoneNumberEncoderServiceImpl.java" />
-      <change type="MOVED" beforePath="C:\phone\src\test\java\org\aconex\phone\datasource\ClassLoaderDictionaryProviderTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/reader/ClassLoaderDictionaryReaderTest.java" />
-      <change type="MOVED" beforePath="C:\phone\src\test\java\org\aconex\phone\datasource\FileBasedDictionaryProviderTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/reader/FileBasedDictionaryProviderTest.java" />
-      <change type="MOVED" beforePath="C:\phone\src\test\java\org\aconex\phone\datasource\FileDictionaryProviderTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/reader/FileDictionaryReaderTest.java" />
-      <change type="MOVED" beforePath="C:\phone\src\test\java\org\aconex\phone\datasource\FileIteratorTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/reader/FileIteratorTest.java" />
-      <change type="MOVED" beforePath="C:\phone\src\test\java\org\aconex\phone\datasource\InMemoryDictionaryProviderTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/reader/InMemoryDictionaryReaderTest.java" />
-      <change type="MOVED" beforePath="C:\phone\src\test\java\org\aconex\phone\service\PhoneNumberConverterServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/service/PhoneNumberEncoderServiceTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/domain/PhoneNumber.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/domain/PhoneNumberTest.java" />
+      <change type="MOVED" beforePath="C:\phone\src\main\java\org\aconex\phone\repository\DictionaryWord.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/domain/DictionaryWord.java" />
+      <change type="MOVED" beforePath="C:\phone\src\test\java\org\aconex\phone\repository\DictionaryWordTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/domain/DictionaryWordTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/DictionaryRepository.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/DictionaryRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/DictionaryRepositoryImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/DictionaryRepositoryImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryRepositoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/aconex/phone/Main.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/aconex/phone/MainTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/MainTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/specs/PhoneFixture.java" afterPath="$PROJECT_DIR$/src/test/specs/PhoneFixture.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/PhoneNumberEncoderService.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/PhoneNumberEncoderService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/impl/PhoneNumberEncoderServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/impl/PhoneNumberEncoderServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/aconex/phone/service/PhoneNumberEncoderServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/service/PhoneNumberEncoderServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/PhoneNumberRepositoryImpl.java" afterPath="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/PhoneNumberRepositoryImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/PhoneNumberRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/PhoneNumberRepositoryTest.java" />
     </list>
     <ignored path="phone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,22 +52,115 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ClassLoaderDictionaryReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/impl/ClassLoaderDictionaryReader.java">
+      <file leaf-file-name="PhoneNumberEncoderServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/service/impl/PhoneNumberEncoderServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="663">
-              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+            <state vertical-scroll-proportion="-0.35547575" vertical-offset="793" max-vertical-offset="1530">
+              <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DictionaryReader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/DictionaryReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DictionaryReader.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/DictionaryReader.java">
+      <file leaf-file-name="PhoneNumberRepositoryImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/PhoneNumberRepositoryImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15260324" vertical-offset="0" max-vertical-offset="557">
-              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="850">
+              <caret line="8" column="87" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DictionaryRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/DictionaryRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhoneNumberEncoderService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/service/PhoneNumberEncoderService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DictionaryRepositoryImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/DictionaryRepositoryImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1037">
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#778#794#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhoneNumberEncoderServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/service/PhoneNumberEncoderServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="854" max-vertical-offset="1615">
+              <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DictionaryRepositoryTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryRepositoryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1292">
+              <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhoneNumber.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/domain/PhoneNumber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhoneNumberRepositoryTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/PhoneNumberRepositoryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="739" max-vertical-offset="1479">
+              <caret line="77" column="43" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1305#1306#0" expanded="true" />
+                <element signature="e#1385#1386#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,8 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/WordReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/WordIterator.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/WordIteratorTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/WordReaderTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryDataSourceProviderTest.java" />
@@ -106,29 +187,24 @@
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/impl/FileBasedDictionaryDataSourceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/DictionaryDataSource.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/impl/ClassLoaderDictionaryDataSourceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/DictionaryRepository.java" />
         <option value="$PROJECT_DIR$/src/test/specs/org/aconex/phone/HelloWorld.html" />
         <option value="$PROJECT_DIR$/src/test/specs/org/aconex/phone/HelloWorldFixture.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/specs/org/aconex/phone/PhoneFixture.java" />
         <option value="$PROJECT_DIR$/src/test/specs/org/aconex/phone/Phone2Fixture.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/PhoneNumberRepository.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/service/PhoneNumberConverterServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/PhoneNumberRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/datasource/DictionaryIteratorTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/datasource/FileIteratorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/FileIterator.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/impl/InMemoryDictionaryProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/DictionaryIterator.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/datasource/InMemoryDictionaryProviderTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/DictionaryRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/FileBasedDictionaryProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/impl/ClassLoaderDictionaryProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/impl/FileDictionaryProvider.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/datasource/FileBasedDictionaryProviderTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/datasource/FileDictionaryProviderTest.java" />
         <option value="$PROJECT_DIR$/src/test/specs/org/aconex/phone/Phone.html" />
-        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/PhoneNumberRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/datasource/ClassLoaderDictionaryProviderTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/MainTest.java" />
@@ -137,10 +213,17 @@
         <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryWordTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/impl/PhoneNumberConverterServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/PhoneNumberConverterService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/PhoneNumberEncoderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/DictionaryProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/datasource/DictionaryReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/DictionaryReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/PhoneNumberRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/DictionaryRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/PhoneNumberEncoderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/DictionaryRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/service/PhoneNumberEncoderServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryRepositoryTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/PhoneNumberRepositoryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/aconex/phone/service/impl/PhoneNumberEncoderServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -185,8 +268,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -329,6 +412,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="reader" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -437,7 +550,135 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repository" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="reader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="phone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1053,15 +1294,16 @@
       <workItem from="1426211157458" duration="27546000" />
       <workItem from="1426282215240" duration="4156000" />
       <workItem from="1426297500046" duration="6794000" />
+      <workItem from="1426371261918" duration="1309000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229596000" />
+    <option name="totallyTimeSpent" value="230905000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1077,7 +1319,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23828125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.339375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.201875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="249" y="129" width="400" height="568" />
@@ -1114,12 +1356,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/DictionaryRepositoryImpl.java</url>
-          <line>30</line>
+          <line>31</line>
           <properties />
           <option name="timeStamp" value="90" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="93" />
+      <option name="time" value="94" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1128,6 +1370,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/DictionaryReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_75/src.zip!/java/io/FileInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7191">
@@ -1276,7 +1526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="867">
           <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,20 +1534,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="96" max-vertical-offset="612">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryRepositoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1105">
-          <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/PhoneNumberRepositoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="413" max-vertical-offset="1428">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1349,14 +1584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/DictionaryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/specs/Phone.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.230769" vertical-offset="357" max-vertical-offset="2992">
@@ -1364,27 +1591,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/PhoneNumberRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="748">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/impl/FileDictionaryReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/DictionaryRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="211" max-vertical-offset="901">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#781#797#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1429,14 +1639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/service/PhoneNumberEncoderServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="1377">
-          <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/words.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="987414" max-vertical-offset="987938">
@@ -1452,22 +1654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryWordTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1292">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/DictionaryWord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="308" max-vertical-offset="1411">
-          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="441" max-vertical-offset="1972">
@@ -1475,24 +1661,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/service/impl/PhoneNumberEncoderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="1479">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/service/PhoneNumberEncoderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1514,9 +1682,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/reader/DictionaryReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15260324" vertical-offset="0" max-vertical-offset="557">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
           <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/PhoneNumberRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="76" max-vertical-offset="850">
+          <caret line="8" column="87" selection-start-line="8" selection-start-column="87" selection-end-line="8" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/DictionaryRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/service/PhoneNumberEncoderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/repository/impl/DictionaryRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1037">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#778#794#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/service/PhoneNumberEncoderServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="854" max-vertical-offset="1615">
+          <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/PhoneNumberRepositoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="739" max-vertical-offset="1479">
+          <caret line="77" column="43" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1385#1386#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/aconex/phone/repository/DictionaryRepositoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1292">
+          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/domain/PhoneNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aconex/phone/service/impl/PhoneNumberEncoderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.35547575" vertical-offset="793" max-vertical-offset="1530">
+          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

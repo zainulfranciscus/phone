@@ -1,4 +1,4 @@
-package org.aconex.phone.repository;
+package org.aconex.phone.domain;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

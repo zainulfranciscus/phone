@@ -1,11 +1,7 @@
 package org.aconex.phone.service;
 
 import org.aconex.phone.repository.DictionaryRepository;
-import org.aconex.phone.repository.DictionaryWord;
-import org.aconex.phone.repository.PhoneNumberRepository;
 
-import java.util.List;
-import java.util.Set;
 import java.util.SortedSet;
 
 /**

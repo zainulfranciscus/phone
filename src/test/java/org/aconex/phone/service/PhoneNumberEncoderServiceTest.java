@@ -1,8 +1,9 @@
 package org.aconex.phone.service;
 
 
+import org.aconex.phone.domain.DictionaryWord;
 import org.aconex.phone.repository.DictionaryRepository;
-import org.aconex.phone.repository.DictionaryWord;
+
 import org.aconex.phone.service.impl.PhoneNumberEncoderServiceImpl;
 import org.junit.Test;
 

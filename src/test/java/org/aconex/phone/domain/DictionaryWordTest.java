@@ -1,12 +1,12 @@
-package org.aconex.phone.repository;
+package org.aconex.phone.domain;
 
 
+import org.aconex.phone.domain.DictionaryWord;
 import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
-import static org.aconex.phone.repository.DictionaryWord.PUNCTUATIONS;
 import static org.junit.Assert.assertEquals;
 
 /**

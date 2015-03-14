@@ -1,14 +1,13 @@
 package org.aconex.phone.repository.impl;
 
 
-import org.aconex.phone.repository.DictionaryWord;
 import org.aconex.phone.repository.PhoneNumberRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.aconex.phone.repository.DictionaryWord.removePunctuationsFromPhoneNumber;
-import static org.aconex.phone.repository.DictionaryWord.removeWhiteSpaces;
+import static org.aconex.phone.domain.DictionaryWord.removePunctuationsFromPhoneNumber;
+import static org.aconex.phone.domain.DictionaryWord.removeWhiteSpaces;
 
 /**
  * Created by Lenovo on 6/03/2015.

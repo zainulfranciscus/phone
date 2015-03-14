@@ -1,9 +1,10 @@
 package org.aconex.phone.repository.impl;
 
+import org.aconex.phone.domain.DictionaryWord;
 import org.aconex.phone.reader.DictionaryIterator;
 import org.aconex.phone.reader.DictionaryReader;
 import org.aconex.phone.repository.DictionaryRepository;
-import org.aconex.phone.repository.DictionaryWord;
+
 import org.aconex.phone.repository.PhoneNumberRepository;
 
 

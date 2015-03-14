@@ -1,14 +1,18 @@
 package org.aconex.phone.service.impl;
 
+import org.aconex.phone.domain.DictionaryWord;
 import org.aconex.phone.repository.DictionaryRepository;
-import org.aconex.phone.repository.DictionaryWord;
+
 import org.aconex.phone.service.PhoneNumberEncoderService;
 
-import static org.aconex.phone.repository.DictionaryWord.*;
+
 
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+import static org.aconex.phone.domain.DictionaryWord.removePunctuationsFromPhoneNumber;
+import static org.aconex.phone.domain.DictionaryWord.removeWhiteSpaces;
 
 /**
  * Created by Lenovo on 3/03/2015.
@@ -27,7 +31,7 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
     @Override
     public SortedSet<String> encode(String phoneNumber) throws Exception {
 
-        if (isEmptyString(phoneNumber)) {
+        if ( phoneNumber == null || phoneNumber.trim().length() == 0) {
             return new TreeSet<String>();
         }
 
@@ -36,7 +40,7 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
 
         SortedSet<String> encodedNumbers = encode(phoneNumberWithoutPunctuations, matchingWords);
 
-        if (encodedNumbers.size() == 0 && !isEmptyString(phoneNumber)) {
+        if (encodedNumbers.size() == 0) {
             encodedNumbers.add(phoneNumber);
         }
 
@@ -44,9 +48,7 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
 
     }
 
-    private boolean isEmptyString(String phoneNumber) {
-        return phoneNumber == null || phoneNumber.trim().length() == 0;
-    }
+
 
     private SortedSet<String> encode(String phoneNumber, List<DictionaryWord> matchingWords) throws Exception {
 
@@ -78,4 +80,5 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
         this.dictionaryRepository = d;
 
     }
+
 }

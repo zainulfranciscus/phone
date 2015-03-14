@@ -1,5 +1,6 @@
 package org.aconex.phone.repository;
 
+import org.aconex.phone.domain.DictionaryWord;
 import org.aconex.phone.reader.DictionaryReader;
 
 import java.util.List;
