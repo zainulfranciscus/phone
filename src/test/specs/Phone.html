@@ -1,0 +1,171 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<link href="../../concordion.css" rel="stylesheet" type="text/css" />
+<body>
+
+    <h1>Encoding Phone Numbers</h1>
+
+   <div class="example">
+
+       <h2> Test for an Empty Dictionary </h2>
+        <p> Given that our dictionary is empty : <br/>
+
+        <table concordion:execute="setUpDictionary(#word)">
+            <tr><th concordion:set="#word">Words</th></tr>
+        </table>
+
+        </p>
+        <p>
+            When phone number is <b concordion:set="#phoneNumber">46464</b>
+            Then, that phone number will not be encoded.
+
+        <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+            <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+            <tr><td>46464</td></tr>
+        </table>
+
+        </p>
+
+
+        <h2> Phone Numbers that have more than 1 word in it </h2>
+        <p> Given that our dictionary has these words : <br/>
+
+        <table concordion:execute="setUpDictionary(#word)">
+            <tr><th concordion:set="#word">Words</th></tr>
+            <tr><td>Go</td></tr>
+            <tr><td>In</td></tr>
+            <tr><td>Oh</td></tr>
+            <tr><td>Mode</td></tr>
+            <tr><td>Odd</td></tr>
+            <tr><td> Pen </td></tr>
+            <tr><td>dot</td></tr>
+            <tr><td>n u t</td></tr>
+            <tr><td>Up</td></tr>
+            <tr><td>To</td></tr>
+            <tr><td>Date</td></tr>
+            <tr><td>up-to-date</td></tr>
+        </table>
+
+        </p>
+        <p>
+            When phone number is <b concordion:set="#phoneNumber">46464</b>
+            Then, that phone number will encoded into these numbers:
+
+        <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+            <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+            <tr><td>4-OH-OH</td></tr>
+            <tr><td>GO-4-OH</td></tr>
+            <tr><td>GO-GO-4</td></tr>
+            <tr><td>GO-IN-4</td></tr>
+            <tr><td>IN-4-OH</td></tr>
+            <tr><td>IN-GO-4</td></tr>
+            <tr><td>IN-IN-4</td></tr>
+        </table>
+
+        </p>
+
+        <p>
+            When phone number is <b concordion:set="#phoneNumber">6633</b>
+            Then, that phone number will encoded into these numbers:
+
+        <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+            <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+            <tr><td>6-ODD</td></tr>
+            <tr><td>MODE</td></tr>
+        </table>
+
+        </p>
+
+        <h2> Phone Numbers with punctuations in it </h2>
+
+        <p>
+            When phone number is <b concordion:set="#phoneNumber">4,(6).4:6;4'</b>
+            Then, that phone number will encoded into these numbers:
+
+        <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+            <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+            <tr><td>4-OH-OH</td></tr>
+            <tr><td>GO-4-OH</td></tr>
+            <tr><td>GO-GO-4</td></tr>
+            <tr><td>GO-IN-4</td></tr>
+            <tr><td>IN-4-OH</td></tr>
+            <tr><td>IN-GO-4</td></tr>
+            <tr><td>IN-IN-4</td></tr>
+        </table>
+
+        </p>
+
+        <p>
+            When phone number is <b concordion:set="#phoneNumber">-6[6]:3?'3!</b>
+            Then, that phone number will encoded into these numbers:
+
+        <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+            <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+            <tr><td>6-ODD</td></tr>
+            <tr><td>MODE</td></tr>
+        </table>
+
+        </p>
+
+        <h2>Phone Numbers that have 2 consecutive digits or more, which cannot be encoded</h2>
+
+        <p>
+            When phone number is <b concordion:set="#phoneNumber">73688</b>
+            Then, that phone number will encoded into these numbers:
+
+        <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+            <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+            <tr><td>7-DOT-8</td></tr>
+        </table>
+
+        Note: Pen-88 and 73-Nut should not be printed into that table because it has 2 consecutive digits.
+
+        </p>
+
+        <p>
+            When phone number is <b concordion:set="#phoneNumber">55-633.736</b>
+            Then, that phone number will encoded into these numbers:
+
+        <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+            <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+            <tr><td>55-633.736</td></tr>
+        </table>
+
+        Note: 55 cannot be matched to any words in dictionary. That is why every encoded phone number will begins with 55.
+        And, and encoded phone number cannot have 2 consecutive digits.
+
+        </p>
+
+        <h2>Phone Numbers that matches a hyphenated-word in the dictionary</h2>
+
+        <p>
+            When phone number is <b concordion:set="#phoneNumber">(87)86-3283</b>
+            Then, that phone number will encoded into these numbers:
+
+        <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+            <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+            <tr><td>UP-TO-DATE</td></tr>
+        </table>
+        </p>
+
+        <h2>Phone numbers with empty spaces</h2>
+
+        <p>
+            When phone number is <b concordion:set="#phoneNumber">736 368 8</b>
+            Then, that phone number will encoded into these numbers, ignoring white spaces in them
+
+        <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+            <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+            <tr><td>PEN-3-NUT</td></tr>
+            <tr><td>PEN-DOT-8</td></tr>
+        </table>
+        </p>
+
+
+
+    </div>
+
+
+
+
+</body>
+</html>
