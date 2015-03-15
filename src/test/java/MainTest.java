@@ -1,9 +1,8 @@
-package org.aconex.phone;
-
 import org.aconex.phone.reader.DictionaryReader;
 import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
 import org.aconex.phone.reader.impl.FileDictionaryReader;
 import org.aconex.phone.repository.DictionaryRepository;
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
@@ -12,7 +11,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 import static junit.framework.TestCase.*;
-import static org.aconex.phone.Main.CMD_SWITCH_FOR_DICTIONARY;
 import static org.aconex.phone.reader.FileBasedDictionaryProviderTest.NON_EXISTING_FILE;
 import static org.aconex.phone.reader.FileDictionaryReaderTest.dictionaryForUnitTest;
 import static org.junit.Assert.assertEquals;
@@ -34,7 +32,7 @@ public class MainTest {
     @Test
     public void shouldReturnNameOfDictionary() {
 
-        String nameOfDictionary = main.nameOfDictionaryFromCommandLineArgs(CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME);
+        String nameOfDictionary = main.nameOfDictionaryFromCommandLineArgs(Main.CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME);
         assertEquals(EXPECTED_DICTIONARY_NAME, nameOfDictionary);
 
     }
@@ -42,7 +40,7 @@ public class MainTest {
     @Test
     public void shouldReturnNameOfDictionaryWithoutSpaces() {
 
-        String nameOfDictionary = main.nameOfDictionaryFromCommandLineArgs(CMD_SWITCH_FOR_DICTIONARY + EMPTY_SPACE + EXPECTED_DICTIONARY_NAME);
+        String nameOfDictionary = main.nameOfDictionaryFromCommandLineArgs(Main.CMD_SWITCH_FOR_DICTIONARY  + EMPTY_SPACE + EXPECTED_DICTIONARY_NAME);
         assertEquals(EXPECTED_DICTIONARY_NAME, nameOfDictionary);
     }
 
@@ -86,7 +84,7 @@ public class MainTest {
 
     @Test
     public void shouldReturnPhoneNumberWhenThereIsADSwitch() {
-        assertEquals(EXPECTED_PHONE_NUMBER, main.phoneNumberFromCommandLineArgs(EXPECTED_PHONE_NUMBER + EMPTY_SPACE + CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME));
+        assertEquals(EXPECTED_PHONE_NUMBER, main.phoneNumberFromCommandLineArgs(EXPECTED_PHONE_NUMBER + EMPTY_SPACE + Main.CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME));
     }
 
     @Test
@@ -107,7 +105,7 @@ public class MainTest {
         String expectedResult = "user input";
         when(mockReader.readLine()).thenReturn(expectedResult);
 
-        assertEquals(expectedResult,main.readUserInput(mockReader));
+        assertEquals(expectedResult, main.readUserInput(mockReader));
     }
 
     @Test

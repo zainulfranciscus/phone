@@ -20,9 +20,9 @@ public class ClassLoaderDictionaryReaderTest extends FileBasedDictionaryProvider
     }
 
     @Test
-    public void shouldReturnANullFile(){
+    public void shouldReturnANullFile() throws Exception {
         provider.sourceOfData(NON_EXISTING_FILE);
-        assertNull(provider.file());
+        assertNull(provider.reader());
 
     }
 

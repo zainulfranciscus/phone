@@ -15,13 +15,13 @@ public class FileDictionaryReaderTest extends FileBasedDictionaryProviderTest {
     @Override
     public FileBasedDictionaryReader provider() {
 
-
-        provider.sourceOfData(dictionaryForUnitTest());
+        String path = dictionaryForUnitTest();
+        provider.sourceOfData(path);
         return provider;
     }
 
     public static String dictionaryForUnitTest(){
-        return provider.getClass().getClassLoader().getResource(DICTIONARY_FILE_THAT_EXIST).getFile();
+        return ClassLoader.getSystemClassLoader().getSystemResource(DICTIONARY_FILE_THAT_EXIST).getPath();
     }
 
 }

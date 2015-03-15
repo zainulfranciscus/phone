@@ -1,9 +1,7 @@
-package org.aconex.phone;
-
+import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
 import org.aconex.phone.reader.DictionaryReader;
 import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
 import org.aconex.phone.reader.impl.FileDictionaryReader;
-import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
 import org.aconex.phone.service.PhoneNumberEncoderService;
@@ -35,54 +33,56 @@ public class Main {
 
         PhoneNumberEncoderService phoneNumberEncoderService = new PhoneNumberEncoderServiceImpl();
         phoneNumberEncoderService.setDictionaryRepository(main.getDictionaryRepository(dictionary));
+
         SortedSet<String> encodedPhoneNumbers = phoneNumberEncoderService.encode(phoneNumber);
 
-        for(String encodedPhoneNumber: encodedPhoneNumbers){
+
+        for (String encodedPhoneNumber : encodedPhoneNumbers) {
             System.out.println(encodedPhoneNumber);
         }
+
 
     }
 
     public String nameOfDictionaryFromCommandLineArgs(String commandLineArgs) {
 
-        if(commandLineArgs == null) {
+        if (commandLineArgs == null) {
             return null;
         }
 
         int indexWhereDSwitchIs = indexOfDSwitch(commandLineArgs);
 
-        if(indexWhereDSwitchIs == -1){
+        if (indexWhereDSwitchIs == -1) {
             return null;
         }
 
         int indexWhereDictionaryNameStart = indexWhereDSwitchIs + 2;
-        return commandLineArgs.substring(indexWhereDictionaryNameStart,commandLineArgs.length()).trim();
+        return commandLineArgs.substring(indexWhereDictionaryNameStart, commandLineArgs.length()).trim();
 
     }
 
     public String phoneNumberFromCommandLineArgs(String commandLineArgs) {
 
-        if(commandLineArgs == null) {
+        if (commandLineArgs == null) {
             return null;
         }
 
         int indexOfDSwitch = indexOfDSwitch(commandLineArgs);
 
-        if(indexOfDSwitch == -1){
+        if (indexOfDSwitch == -1) {
             return commandLineArgs.trim();
         }
-        return commandLineArgs.substring(0,indexOfDSwitch).trim();
+        return commandLineArgs.substring(0, indexOfDSwitch).trim();
     }
 
 
-
-    private int indexOfDSwitch(String commandLineArgs){
+    private int indexOfDSwitch(String commandLineArgs) {
         return commandLineArgs.indexOf(CMD_SWITCH_FOR_DICTIONARY);
     }
 
     public DictionaryReader dictionaryProvider(String dictionaryFile) {
 
-        if(dictionaryFile != null) {
+        if (dictionaryFile != null) {
             FileDictionaryReader fileDictionaryProvider = new FileDictionaryReader();
             fileDictionaryProvider.sourceOfData(dictionaryFile);
 

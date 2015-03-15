@@ -1,8 +1,6 @@
 package org.aconex.phone.reader;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 
 /**
  * Created by Lenovo on 11/03/2015.
@@ -12,8 +10,8 @@ public abstract class FileBasedDictionaryReader implements DictionaryReader {
     @Override
     public DictionaryIterator iterator() throws Exception {
 
-        FileReader fileReader = new FileReader(file());
-        final BufferedReader br = new BufferedReader(fileReader);
+
+        final BufferedReader br = new BufferedReader(reader());
 
         FileIterator iterator = new FileIterator();
         iterator.setReader(br);
@@ -21,7 +19,7 @@ public abstract class FileBasedDictionaryReader implements DictionaryReader {
     }
 
 
-    public abstract File file();
+    public abstract Reader reader()throws Exception;
 
     public abstract boolean fileExist();
 }

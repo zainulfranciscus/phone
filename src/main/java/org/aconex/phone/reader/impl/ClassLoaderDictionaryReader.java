@@ -11,28 +11,23 @@ import org.aconex.phone.reader.FileBasedDictionaryReader;
 public class ClassLoaderDictionaryReader extends FileBasedDictionaryReader {
 
     private String fileInClasspath;
-    private URL locationOfFileInClassPath;
 
     @Override
     public void sourceOfData(String file) {
         fileInClasspath = file;
-        locationOfFileInClassPath = this.getClass().getClassLoader().getResource(fileInClasspath);
-
     }
 
     @Override
-    public File file() {
-
-        if(!fileExist()) {
+    public Reader reader() {
+        if (!fileExist()) {
             return null;
         }
-
-        return new File(locationOfFileInClassPath.getFile());
+        return new InputStreamReader(getClass().getClassLoader().getResourceAsStream(fileInClasspath));
     }
 
     @Override
     public boolean fileExist() {
-        return locationOfFileInClassPath != null;
+        return this.getClass().getClassLoader().getResource(fileInClasspath) != null;
     }
 
 }
