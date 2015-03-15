@@ -55,7 +55,7 @@ public class PhoneNumberEncoderServiceTest {
     public void shouldBeReplacedWithGo() throws Exception {
 
         String phoneNumber = "46";
-        String wordThatMatchesPhoneNumber = "GO";
+        String wordThatMatchesPhoneNumber = "THE_WORD_GO";
 
         List<DictionaryWord> wordThatMatches46 = new ArrayList<DictionaryWord>();
         wordThatMatches46.add(new DictionaryWord(wordThatMatchesPhoneNumber, phoneNumber));

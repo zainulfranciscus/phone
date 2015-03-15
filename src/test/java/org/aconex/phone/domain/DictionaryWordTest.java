@@ -16,7 +16,7 @@ public class DictionaryWordTest {
 
     private DictionaryWord wordForGo;
 
-    private static final String THE_WORD_GO = "GO";
+    private static final String THE_WORD_GO = "THE_WORD_GO";
     private static final String NUMBER_46 = "46";
 
 
