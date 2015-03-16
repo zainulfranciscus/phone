@@ -8,13 +8,10 @@ import org.aconex.phone.service.PhoneNumberEncoderService;
 
 
 import java.util.*;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static java.util.regex.Pattern.*;
-import static org.aconex.phone.domain.DictionaryWord.removePunctuationAndWhiteSpace;
-import static org.aconex.phone.domain.DictionaryWord.removePunctuationsFromPhoneNumber;
-import static org.aconex.phone.domain.DictionaryWord.removeWhiteSpaces;
+import static org.aconex.phone.domain.DictionaryWord.*;
 
 /**
  * Created by Zainul Franciscus on 14/03/2015.
@@ -50,6 +47,7 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
         SortedSet<String> encodedPhoneNumbers = new TreeSet<>();
 
         if (matchingWords.size() == 0 && !compile(REGEX_TO_FIND_2_OR_MORE_CONSECUTIVE_DIGITS).matcher(phoneNumber).find()) {
+
             encodedPhoneNumbers.add(phoneNumber);
 
             return encodedPhoneNumbers;
@@ -57,7 +55,7 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
 
         for (DictionaryWord word : matchingWords) {
 
-            String encodedPhoneNumber = word.replaceFirst(phoneNumber);
+            String encodedPhoneNumber = word.replaceNumbersWithLetters(phoneNumber);
 
             List<DictionaryWord> words =  matchingWords.stream().filter(matchingWord -> matchingWord.hasMatchWith(encodedPhoneNumber)).collect(Collectors.toList());
 

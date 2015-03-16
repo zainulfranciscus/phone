@@ -14,7 +14,6 @@ import static org.aconex.phone.domain.DictionaryWord.removeWhiteSpaces;
  */
 public class PhoneNumberRepositoryImpl implements PhoneNumberRepository {
 
-
     private Map<String, Integer> mapOfLettersToPhoneNumber = new HashMap<String, Integer>();
 
     @Override
