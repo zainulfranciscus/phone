@@ -37,7 +37,7 @@ public class DictionaryWordTest {
 
     @Test
     public void shouldBeReplacedWithGoEvenWhenThereIsSpacesIn46() {
-        assertEquals(THE_WORD_GO, dictionary.replaceNumbersWithLetters("4 6 "));
+        assertEquals(THE_WORD_GO, dictionary.encodePhoneNumberWithLetters("4 6 "));
 
     }
 
@@ -67,7 +67,7 @@ public class DictionaryWordTest {
 
     @Test
     public void fortySixShouldBeReplacedWithGoAndADash() {
-        assertEquals("88" + DASH + THE_WORD_GO + DASH + "99", dictionary.replaceNumbersWithLetters("884699"));
+        assertEquals("88" + DASH + THE_WORD_GO + DASH + "99", dictionary.encodePhoneNumberWithLetters("884699"));
     }
 
     @Test

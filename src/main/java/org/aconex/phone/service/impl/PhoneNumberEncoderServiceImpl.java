@@ -55,7 +55,7 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
 
         for (DictionaryWord word : matchingWords) {
 
-            String encodedPhoneNumber = word.replaceNumbersWithLetters(phoneNumber);
+            String encodedPhoneNumber = word.encodePhoneNumberWithLetters(phoneNumber);
 
             List<DictionaryWord> words =  matchingWords.stream().filter(matchingWord -> matchingWord.hasMatchWith(encodedPhoneNumber)).collect(Collectors.toList());
 

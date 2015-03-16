@@ -8,28 +8,15 @@ import java.util.stream.Stream;
  */
 public class DictionaryWord {
 
-    public static final String DASH = "-";
     public static final String[] PUNCTUATIONS = new String[] {".","?","!",":",";","-","(",")","[","]","\'","\"","/",","};
+
+    protected static final String DASH = "-";
 
     private static final String REGEX_TO_MATCH_EMPTY_SPACES = "\\s+";
     private static final String DOUBLE_DASH = "--";
     private String phoneNumberRepresentation;
     private String word;
 
-    public static String removePunctuationAndWhiteSpace(String phoneNumber) {
-
-        phoneNumber = removePunctuationsFromPhoneNumber(phoneNumber);
-        return removeWhiteSpaces(phoneNumber);
-
-    }
-    public static String removePunctuationsFromPhoneNumber(String phoneNumber) {
-
-        StringBuilder escapedPunctuationsForRegexMatching = new StringBuilder();
-
-        Stream.of(PUNCTUATIONS).forEach(punctuation -> escapedPunctuationsForRegexMatching.append(Pattern.quote(punctuation)));
-
-        return phoneNumber.replaceAll("[" + escapedPunctuationsForRegexMatching.toString()  + "]","");
-    }
 
     public DictionaryWord(String w, String phoneNumber) {
         phoneNumberRepresentation = phoneNumber;
@@ -51,12 +38,7 @@ public class DictionaryWord {
 
     }
 
-    public static String removeWhiteSpaces(String str) {
-        return str.replaceAll(REGEX_TO_MATCH_EMPTY_SPACES,"");
-    }
-
-
-    public String replaceNumbersWithLetters(String phoneNumber) {
+    public String encodePhoneNumberWithLetters(String phoneNumber) {
 
         phoneNumber = removeWhiteSpaces(phoneNumber);
 
@@ -67,6 +49,25 @@ public class DictionaryWord {
 
         return encodedPhoneNumber.toUpperCase();
 
+    }
+
+    public static String removeWhiteSpaces(String str) {
+        return str.replaceAll(REGEX_TO_MATCH_EMPTY_SPACES,"");
+    }
+
+    public static String removePunctuationAndWhiteSpace(String phoneNumber) {
+
+        phoneNumber = removePunctuationsFromPhoneNumber(phoneNumber);
+        return removeWhiteSpaces(phoneNumber);
+
+    }
+    public static String removePunctuationsFromPhoneNumber(String phoneNumber) {
+
+        StringBuilder escapedPunctuationsForRegexMatching = new StringBuilder();
+
+        Stream.of(PUNCTUATIONS).forEach(punctuation -> escapedPunctuationsForRegexMatching.append(Pattern.quote(punctuation)));
+
+        return phoneNumber.replaceAll("[" + escapedPunctuationsForRegexMatching.toString()  + "]","");
     }
 
     protected static String removeDashAtTheStartOfAString(String str){

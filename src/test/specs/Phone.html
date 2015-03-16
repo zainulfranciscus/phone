@@ -147,7 +147,7 @@
         </table>
         </p>
 
-        <h2>Phone numbers with empty spaces</h2>
+        <h2>Phone numbers with white spaces</h2>
 
         <p>
             When phone number is <b concordion:set="#phoneNumber">736 368 8</b>
@@ -159,6 +159,17 @@
             <tr><td>PEN-DOT-8</td></tr>
         </table>
         </p>
+
+       <h2>Empty Phone numbers</h2>
+
+       <p>
+           When phone number is empty <b concordion:set="#phoneNumber"></b>
+           Then, the encoded phone number will also be empty
+
+       <table concordion:verifyRows="#word : convertPhoneNumber(#phoneNumber)">
+           <tr><th concordion:assertEquals="#word">Phone Numbers with Words from the Dictionary</th></tr>
+       </table>
+       </p>
 
 
 
