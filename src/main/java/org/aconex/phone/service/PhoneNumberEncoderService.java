@@ -13,7 +13,4 @@ public interface PhoneNumberEncoderService {
 
     SortedSet<String> encode(String phoneNumber) throws Exception;
 
-    boolean has2ConsecutiveDigits(String str);
-
-
 }

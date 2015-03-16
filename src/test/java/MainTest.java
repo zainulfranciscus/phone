@@ -45,7 +45,7 @@ public class MainTest {
     @Test
     public void shouldReturnNameOfDictionary() {
 
-        String nameOfDictionary = main.dictionaryFileFromConsoleInput(Main.CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME);
+        String nameOfDictionary = main.dictionaryFileFromConsoleInput(Main.SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME);
         assertEquals(EXPECTED_DICTIONARY_NAME, nameOfDictionary);
 
     }
@@ -53,7 +53,7 @@ public class MainTest {
     @Test
     public void shouldReturnNameOfDictionaryWithoutSpaces() {
 
-        String nameOfDictionary = main.dictionaryFileFromConsoleInput(Main.CMD_SWITCH_FOR_DICTIONARY + EMPTY_SPACE + EXPECTED_DICTIONARY_NAME);
+        String nameOfDictionary = main.dictionaryFileFromConsoleInput(Main.SWITCH_FOR_DICTIONARY + EMPTY_SPACE + EXPECTED_DICTIONARY_NAME);
         assertEquals(EXPECTED_DICTIONARY_NAME, nameOfDictionary);
     }
 
@@ -97,7 +97,7 @@ public class MainTest {
 
     @Test
     public void shouldReturnPhoneNumberWhenThereIsADSwitch() {
-        assertEquals(EXPECTED_PHONE_NUMBER, main.phoneNumberFromConsoleInput(EXPECTED_PHONE_NUMBER + EMPTY_SPACE + Main.CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME));
+        assertEquals(EXPECTED_PHONE_NUMBER, main.phoneNumberFromConsoleInput(EXPECTED_PHONE_NUMBER + EMPTY_SPACE + Main.SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME));
     }
 
     @Test

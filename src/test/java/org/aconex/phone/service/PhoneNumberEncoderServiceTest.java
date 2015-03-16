@@ -25,27 +25,6 @@ public class PhoneNumberEncoderServiceTest {
     private static PhoneNumberEncoderService phoneNumberEncoderService = new PhoneNumberEncoderServiceImpl();
 
     @Test
-    public void shouldRecogniseAll2ConsecutiveDigits() {
-        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("AA22CC"));
-        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("33CC"));
-        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("BB33"));
-    }
-
-    @Test
-    public void shouldBeFalseWhenThereIsOnly1Number() {
-        assertFalse(phoneNumberEncoderService.has2ConsecutiveDigits("ZZ2CC"));
-        assertFalse(phoneNumberEncoderService.has2ConsecutiveDigits("3KL"));
-        assertFalse(phoneNumberEncoderService.has2ConsecutiveDigits("YU3"));
-    }
-
-    @Test
-    public void shouldBeTrueWhenThereIsMoreThan2ConsecutiveDigits() {
-        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("XX1234CC"));
-        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("5689DDVV"));
-        assertTrue(phoneNumberEncoderService.has2ConsecutiveDigits("QWER33110"));
-    }
-
-    @Test
     public void emptyPhoneNumbersShouldBeConvertedToEmptyString() throws Exception {
         Set<String> wordFromDictionary = phoneNumberEncoderService.encode("");
         assertEquals(0, wordFromDictionary.size());

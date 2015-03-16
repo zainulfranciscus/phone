@@ -8,15 +8,13 @@ import org.aconex.phone.service.PhoneNumberEncoderService;
 import org.aconex.phone.service.impl.PhoneNumberEncoderServiceImpl;
 
 import java.util.SortedSet;
-import java.util.stream.Stream;
 
 /**
  * Created by Zainul Franciscus on 16/03/2015.
  */
 public class Main {
 
-
-    public static final String CMD_SWITCH_FOR_DICTIONARY = "-d";
+    public static final String SWITCH_FOR_DICTIONARY = "-d";
 
     public static void main(String[] args) throws Exception {
         System.out.println("Enter a phone number followed by a -d to specify a file that contains words. E.g: 0411112222 -d C:\\dictionary.txt");
@@ -70,7 +68,7 @@ public class Main {
 
 
     private int indexOfDSwitch(String commandLineArgs) {
-        return commandLineArgs.indexOf(CMD_SWITCH_FOR_DICTIONARY);
+        return commandLineArgs.indexOf(SWITCH_FOR_DICTIONARY);
     }
 
     public DictionaryReader dictionaryProvider(String dictionaryFile) {

@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static java.util.regex.Pattern.*;
 import static org.aconex.phone.domain.DictionaryWord.removePunctuationAndWhiteSpace;
 import static org.aconex.phone.domain.DictionaryWord.removePunctuationsFromPhoneNumber;
 import static org.aconex.phone.domain.DictionaryWord.removeWhiteSpaces;
@@ -23,11 +24,6 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
     public static final String REGEX_TO_FIND_2_OR_MORE_CONSECUTIVE_DIGITS = "\\d{2}";
     private DictionaryRepository dictionaryRepository;
 
-    @Override
-    public boolean has2ConsecutiveDigits(String str) {
-        return Pattern.compile(REGEX_TO_FIND_2_OR_MORE_CONSECUTIVE_DIGITS).matcher(str).find();
-
-    }
 
     @Override
     public SortedSet<String> encode(String phoneNumber) throws Exception {
@@ -53,7 +49,7 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
 
         SortedSet<String> encodedPhoneNumbers = new TreeSet<>();
 
-        if (matchingWords.size() == 0 && !has2ConsecutiveDigits(phoneNumber)) {
+        if (matchingWords.size() == 0 && !compile(REGEX_TO_FIND_2_OR_MORE_CONSECUTIVE_DIGITS).matcher(phoneNumber).find()) {
             encodedPhoneNumbers.add(phoneNumber);
 
             return encodedPhoneNumbers;

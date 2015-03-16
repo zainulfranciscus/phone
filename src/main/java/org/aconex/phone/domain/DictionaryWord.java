@@ -10,7 +10,9 @@ public class DictionaryWord {
 
     public static final String SEPARATOR_FOR_WORDS = "-";
     public static final String[] PUNCTUATIONS = new String[] {".","?","!",":",";","-","(",")","[","]","\'","\"","/",","};
+    
     private static final String REGEX_TO_MATCH_EMPTY_SPACES = "\\s+";
+    private static final String DOUBLE_DASH = "--";
     private String phoneNumberRepresentation;
     private String word;
 
@@ -59,10 +61,8 @@ public class DictionaryWord {
             str = str.substring(0,str.length() - 1 );
         }
 
-        if(Pattern.compile("--").matcher(str).find()){
-
-            str = str.replace("--",SEPARATOR_FOR_WORDS);
-
+        if(str.contains(DOUBLE_DASH)){
+            str = str.replace(DOUBLE_DASH,SEPARATOR_FOR_WORDS);
         }
 
         return str.toUpperCase();
