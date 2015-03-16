@@ -11,7 +11,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Created by Lenovo on 11/03/2015.
+ * Created by Zainul Franciscus on 14/03/2015.
  */
 public class FileIteratorTest {
 

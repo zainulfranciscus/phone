@@ -8,7 +8,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Lenovo on 6/03/2015.
+ * Created by Zainul Franciscus on 14/03/2015.
  */
 public class PhoneNumberRepositoryTest {
 

@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 /**
- * Created by Lenovo on 10/03/2015.
+ * Created by Zainul Franciscus on 14/03/2015.
  */
 public class InMemoryDictionaryReaderTest {
 

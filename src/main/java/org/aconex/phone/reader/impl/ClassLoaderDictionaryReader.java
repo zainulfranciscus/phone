@@ -6,7 +6,7 @@ import java.net.URL;
 import org.aconex.phone.reader.FileBasedDictionaryReader;
 
 /**
- * Created by Lenovo on 10/03/2015.
+ * Created by Zainul Franciscus on 14/03/2015.
  */
 public class ClassLoaderDictionaryReader extends FileBasedDictionaryReader {
 

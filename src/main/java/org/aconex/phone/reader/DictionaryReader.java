@@ -1,7 +1,7 @@
 package org.aconex.phone.reader;
 
 /**
- * Created by Lenovo on 10/03/2015.
+ * Created by Zainul Franciscus on 14/03/2015.
  */
 public interface DictionaryReader {
 

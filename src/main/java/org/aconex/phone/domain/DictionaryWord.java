@@ -1,10 +1,10 @@
 package org.aconex.phone.domain;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
- * Created by Lenovo on 7/03/2015.
+ * Created by Zainul Franciscus on 13/03/2015.
  */
 public class DictionaryWord {
 
@@ -36,11 +36,9 @@ public class DictionaryWord {
 
     public boolean hasMatchWith(String phoneNumber) {
         phoneNumber = removeWhiteSpaces(phoneNumber);
-        Matcher m = Pattern.compile(this.getPhoneNumberRepresentation()).matcher(phoneNumber);
-        return m.find();
+        return phoneNumber.contains(this.getPhoneNumberRepresentation());
+
     }
-
-
 
     public static String removeWhiteSpaces(String str) {
         return str.replaceAll(REGEX_TO_MATCH_EMPTY_SPACES,"");
@@ -71,13 +69,17 @@ public class DictionaryWord {
 
     }
 
+    public static String removePunctuationAndWhiteSpace(String phoneNumber) {
+
+        phoneNumber = removePunctuationsFromPhoneNumber(phoneNumber);
+        return removeWhiteSpaces(phoneNumber);
+
+    }
     public static String removePunctuationsFromPhoneNumber(String phoneNumber) {
 
         StringBuilder escapedPunctuationsForRegexMatching = new StringBuilder();
 
-        for(String punctuation: PUNCTUATIONS) {
-            escapedPunctuationsForRegexMatching.append(Pattern.quote(punctuation));
-        }
+        Stream.of(PUNCTUATIONS).forEach(punctuation -> escapedPunctuationsForRegexMatching.append(Pattern.quote(punctuation)));
 
         return phoneNumber.replaceAll("[" + escapedPunctuationsForRegexMatching.toString()  + "]","");
     }

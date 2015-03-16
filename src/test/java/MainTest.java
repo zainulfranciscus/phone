@@ -2,37 +2,50 @@ import org.aconex.phone.reader.DictionaryReader;
 import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
 import org.aconex.phone.reader.impl.FileDictionaryReader;
 import org.aconex.phone.repository.DictionaryRepository;
-import org.junit.Assert;
-import org.junit.Rule;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.Console;
 
 import static junit.framework.TestCase.*;
 import static org.aconex.phone.reader.FileBasedDictionaryProviderTest.NON_EXISTING_FILE;
 import static org.aconex.phone.reader.FileDictionaryReaderTest.dictionaryForUnitTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
+import static org.powermock.api.mockito.PowerMockito.*;
+
+
+/**
+ * Created by Zainul Franciscus on 16/03/2015.
+ */
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({Main.class})
 public class MainTest {
 
     public static final String EMPTY_SPACE = " ";
     private Main main = new Main();
     public static final String EXPECTED_DICTIONARY_NAME = "dictionary.txt";
     public static final String EXPECTED_PHONE_NUMBER = "041112222";
+    private Console mockConsole;
 
-    @Rule
-    public TextFromStandardInputStream systemInMock = emptyStandardInputStream();
+    @Before
+    public void setup(){
+        PowerMockito.mockStatic(System.class);
+        mockConsole = mock(Console.class);
+
+        Mockito.when(System.console()).thenReturn(mockConsole);
+    }
 
     @Test
     public void shouldReturnNameOfDictionary() {
 
-        String nameOfDictionary = main.nameOfDictionaryFromCommandLineArgs(Main.CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME);
+        String nameOfDictionary = main.dictionaryFileFromConsoleInput(Main.CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME);
         assertEquals(EXPECTED_DICTIONARY_NAME, nameOfDictionary);
 
     }
@@ -40,51 +53,51 @@ public class MainTest {
     @Test
     public void shouldReturnNameOfDictionaryWithoutSpaces() {
 
-        String nameOfDictionary = main.nameOfDictionaryFromCommandLineArgs(Main.CMD_SWITCH_FOR_DICTIONARY  + EMPTY_SPACE + EXPECTED_DICTIONARY_NAME);
+        String nameOfDictionary = main.dictionaryFileFromConsoleInput(Main.CMD_SWITCH_FOR_DICTIONARY + EMPTY_SPACE + EXPECTED_DICTIONARY_NAME);
         assertEquals(EXPECTED_DICTIONARY_NAME, nameOfDictionary);
     }
 
     @Test
     public void shouldReturnNullWhenNoDictionaryNameIsProvided() {
 
-        String nameOfDictionary = main.nameOfDictionaryFromCommandLineArgs("0455551111");
+        String nameOfDictionary = main.dictionaryFileFromConsoleInput("0455551111");
         assertNull(nameOfDictionary);
 
     }
 
     @Test
     public void shouldReturnNullWhenCommandLineArgsIsNull(){
-        String nameOfDictionary = main.nameOfDictionaryFromCommandLineArgs(null);
+        String nameOfDictionary = main.dictionaryFileFromConsoleInput(null);
         assertNull(nameOfDictionary);
     }
 
     @Test
     public void shouldReturnPhoneNumber() {
-        String phoneNumber = main.phoneNumberFromCommandLineArgs(EXPECTED_PHONE_NUMBER);
+        String phoneNumber = main.phoneNumberFromConsoleInput(EXPECTED_PHONE_NUMBER);
         assertEquals(EXPECTED_PHONE_NUMBER, phoneNumber);
     }
 
     @Test
     public void shouldReturnPhoneNumberWithoutSpaces() {
-        String phoneNumber = main.phoneNumberFromCommandLineArgs(EXPECTED_PHONE_NUMBER + EMPTY_SPACE);
+        String phoneNumber = main.phoneNumberFromConsoleInput(EXPECTED_PHONE_NUMBER + EMPTY_SPACE);
         assertEquals(EXPECTED_PHONE_NUMBER, phoneNumber);
     }
 
     @Test
     public void shouldReturnNullWhenPhoneNumberIsNull(){
-        String phoneNumber = main.phoneNumberFromCommandLineArgs(null);
+        String phoneNumber = main.phoneNumberFromConsoleInput(null);
         assertNull(phoneNumber);
     }
 
     @Test
     public void shouldReturnEmptyStringWhenNumberIsNotSpecified() {
-        String phoneNumber = main.phoneNumberFromCommandLineArgs(EMPTY_SPACE);
+        String phoneNumber = main.phoneNumberFromConsoleInput(EMPTY_SPACE);
         assertEquals("", phoneNumber);
     }
 
     @Test
     public void shouldReturnPhoneNumberWhenThereIsADSwitch() {
-        assertEquals(EXPECTED_PHONE_NUMBER, main.phoneNumberFromCommandLineArgs(EXPECTED_PHONE_NUMBER + EMPTY_SPACE + Main.CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME));
+        assertEquals(EXPECTED_PHONE_NUMBER, main.phoneNumberFromConsoleInput(EXPECTED_PHONE_NUMBER + EMPTY_SPACE + Main.CMD_SWITCH_FOR_DICTIONARY + EXPECTED_DICTIONARY_NAME));
     }
 
     @Test
@@ -99,14 +112,7 @@ public class MainTest {
         assertTrue(dictionaryReader instanceof FileDictionaryReader);
     }
 
-    @Test
-    public void shouldReturnUserInput() throws IOException {
-        BufferedReader mockReader = mock(BufferedReader.class);
-        String expectedResult = "user input";
-        when(mockReader.readLine()).thenReturn(expectedResult);
 
-        assertEquals(expectedResult, main.readUserInput(mockReader));
-    }
 
     @Test
     public void shouldReturnADictionaryRepository() {
@@ -117,23 +123,23 @@ public class MainTest {
     }
 
     @Test
-    public void mainShouldNotThrownAnExceptionWhenPhoneNumberIsProvided(){
+    public void mainShouldNotThrowExceptionWhenOnlyPhoneNumberIsProvided(){
 
-        systemInMock.provideText("0411112222");
+        mockConsoleReturnValue("0411112222");
         checkThatExceptionIsNotRaised();
     }
 
     @Test
-    public void mainShouldNotThrownAnExceptionWhenPhoneNumberAndDictionaryFileIsProvided(){
+    public void mainShouldNotThrowExceptionWhenPhoneNumberAndDictionaryFileIsProvided(){
 
-        systemInMock.provideText("4466 -d words.txt");
+        mockConsoleReturnValue("4466 -d words.txt");
         checkThatExceptionIsNotRaised();
     }
 
     @Test
-    public void mainShouldNotThrownAnExceptionWhenNoInputIsEntered(){
+    public void mainShouldNotThrowExceptionWhenNoInputIsEntered(){
 
-        systemInMock.provideText("");
+        mockConsoleReturnValue("");
         checkThatExceptionIsNotRaised();
     }
 
@@ -146,6 +152,10 @@ public class MainTest {
         }
 
         assertFalse(exceptionRaised);
+    }
+
+    private void mockConsoleReturnValue(String value) {
+        when(mockConsole.readLine()).thenReturn(value);
     }
 
 

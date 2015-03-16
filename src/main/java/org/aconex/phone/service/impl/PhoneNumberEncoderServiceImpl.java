@@ -11,11 +11,12 @@ import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static org.aconex.phone.domain.DictionaryWord.removePunctuationAndWhiteSpace;
 import static org.aconex.phone.domain.DictionaryWord.removePunctuationsFromPhoneNumber;
 import static org.aconex.phone.domain.DictionaryWord.removeWhiteSpaces;
 
 /**
- * Created by Lenovo on 3/03/2015.
+ * Created by Zainul Franciscus on 14/03/2015.
  */
 public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService {
 
@@ -35,7 +36,7 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
             return new TreeSet<String>();
         }
 
-        String phoneNumberWithoutPunctuations = removePunctuationsFromPhoneNumber(phoneNumber);
+        String phoneNumberWithoutPunctuations = removePunctuationAndWhiteSpace(phoneNumber);
         List<DictionaryWord> matchingWords = dictionaryRepository.findWordThatMatchesPhoneNumber(phoneNumberWithoutPunctuations);
 
         SortedSet<String> encodedNumbers = encode(phoneNumberWithoutPunctuations, matchingWords);
@@ -48,14 +49,12 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
 
     }
 
-
-
     private SortedSet<String> encode(String phoneNumber, List<DictionaryWord> matchingWords) throws Exception {
 
         SortedSet<String> encodedPhoneNumbers = new TreeSet<>();
 
         if (matchingWords.size() == 0 && !has2ConsecutiveDigits(phoneNumber)) {
-            encodedPhoneNumbers.add(removeWhiteSpaces(phoneNumber));
+            encodedPhoneNumbers.add(phoneNumber);
 
             return encodedPhoneNumbers;
         }

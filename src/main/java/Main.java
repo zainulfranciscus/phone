@@ -7,13 +7,11 @@ import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
 import org.aconex.phone.service.PhoneNumberEncoderService;
 import org.aconex.phone.service.impl.PhoneNumberEncoderServiceImpl;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.SortedSet;
+import java.util.stream.Stream;
 
 /**
- * Created by Lenovo on 10/03/2015.
+ * Created by Zainul Franciscus on 16/03/2015.
  */
 public class Main {
 
@@ -24,27 +22,22 @@ public class Main {
         System.out.println("Enter a phone number followed by a -d to specify a file that contains words. E.g: 0411112222 -d C:\\dictionary.txt");
 
         Main main = new Main();
+        String userInput = System.console().readLine();
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String userInput = main.readUserInput(br);
-
-        String phoneNumber = main.phoneNumberFromCommandLineArgs(userInput);
-        String dictionary = main.nameOfDictionaryFromCommandLineArgs(userInput);
+        String phoneNumber = main.phoneNumberFromConsoleInput(userInput);
+        String dictionary = main.dictionaryFileFromConsoleInput(userInput);
 
         PhoneNumberEncoderService phoneNumberEncoderService = new PhoneNumberEncoderServiceImpl();
         phoneNumberEncoderService.setDictionaryRepository(main.getDictionaryRepository(dictionary));
 
         SortedSet<String> encodedPhoneNumbers = phoneNumberEncoderService.encode(phoneNumber);
 
-
-        for (String encodedPhoneNumber : encodedPhoneNumbers) {
-            System.out.println(encodedPhoneNumber);
-        }
+        encodedPhoneNumbers.forEach(encodedPhoneNumber -> System.out.println(encodedPhoneNumber));
 
 
     }
 
-    public String nameOfDictionaryFromCommandLineArgs(String commandLineArgs) {
+    public String dictionaryFileFromConsoleInput(String commandLineArgs) {
 
         if (commandLineArgs == null) {
             return null;
@@ -61,7 +54,7 @@ public class Main {
 
     }
 
-    public String phoneNumberFromCommandLineArgs(String commandLineArgs) {
+    public String phoneNumberFromConsoleInput(String commandLineArgs) {
 
         if (commandLineArgs == null) {
             return null;
@@ -95,10 +88,6 @@ public class Main {
         classLoaderDictionaryProvider.sourceOfData("words.txt");
 
         return classLoaderDictionaryProvider;
-    }
-
-    public String readUserInput(BufferedReader reader) throws IOException {
-        return reader.readLine();
     }
 
     public DictionaryRepository getDictionaryRepository(String dictionaryFile) {

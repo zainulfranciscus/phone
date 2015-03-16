@@ -10,8 +10,11 @@ import org.aconex.phone.repository.PhoneNumberRepository;
 
 import java.util.*;
 
+import static org.aconex.phone.domain.DictionaryWord.removePunctuationAndWhiteSpace;
+import static org.aconex.phone.domain.DictionaryWord.removeWhiteSpaces;
+
 /**
- * Created by Lenovo on 7/03/2015.
+ * Created by Zainul Franciscus on 15/03/2015.
  */
 public class DictionaryRepositoryImpl implements DictionaryRepository {
 
@@ -28,7 +31,7 @@ public class DictionaryRepositoryImpl implements DictionaryRepository {
         String word;
 
         while( (word = iterator.next()) != null) {
-
+            word = removeWhiteSpaces(word);
             String number = phoneNumberRepository.convertWordToNumber(word);
 
             DictionaryWord dw = new DictionaryWord(word, number);

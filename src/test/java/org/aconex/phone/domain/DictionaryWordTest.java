@@ -10,7 +10,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Lenovo on 7/03/2015.
+ * Created by Zainul Franciscus on 13/03/2015.
  */
 public class DictionaryWordTest {
 

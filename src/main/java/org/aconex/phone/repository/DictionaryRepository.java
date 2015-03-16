@@ -6,7 +6,7 @@ import org.aconex.phone.reader.DictionaryReader;
 import java.util.List;
 
 /**
- * Created by Lenovo on 7/03/2015.
+ * Created by Zainul Franciscus on 14/03/2015.
  */
 public interface DictionaryRepository {
 
