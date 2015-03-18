@@ -38,7 +38,6 @@ public class MainTest {
     public void setup(){
         PowerMockito.mockStatic(System.class);
         mockConsole = mock(Console.class);
-
         Mockito.when(System.console()).thenReturn(mockConsole);
     }
 
@@ -118,7 +117,7 @@ public class MainTest {
     public void shouldReturnADictionaryRepository() {
         DictionaryRepository dictionaryRepository = main.getDictionaryRepository(dictionaryForUnitTest());
         assertNotNull(dictionaryRepository);
-        assertNotNull(dictionaryRepository.getDictionaryProvider());
+        assertNotNull(dictionaryRepository.getDictionaryReader());
 
     }
 

@@ -18,7 +18,7 @@ import static org.aconex.phone.domain.DictionaryWord.*;
  */
 public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService {
 
-    public static final String REGEX_TO_FIND_2_OR_MORE_CONSECUTIVE_DIGITS = "\\d{2}";
+    private static final String REGEX_TO_FIND_2_OR_MORE_CONSECUTIVE_DIGITS = "\\d{2}";
     private DictionaryRepository dictionaryRepository;
 
 

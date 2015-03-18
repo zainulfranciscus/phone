@@ -8,7 +8,7 @@ import java.util.List;
  */
 public interface PhoneNumberRepository {
 
-    void associateLetterForNumber(String letter, int phoneNumber);
+    void associateLetterWithNumber(String letter, int phoneNumber);
 
     Integer findNumber(String word);
 

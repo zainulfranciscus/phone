@@ -41,7 +41,7 @@ public class Main {
             return null;
         }
 
-        int indexWhereDSwitchIs = indexOfDSwitch(commandLineArgs);
+        int indexWhereDSwitchIs = indexOfSwitch(commandLineArgs);
 
         if (indexWhereDSwitchIs == -1) {
             return null;
@@ -58,7 +58,7 @@ public class Main {
             return null;
         }
 
-        int indexOfDSwitch = indexOfDSwitch(commandLineArgs);
+        int indexOfDSwitch = indexOfSwitch(commandLineArgs);
 
         if (indexOfDSwitch == -1) {
             return commandLineArgs.trim();
@@ -67,7 +67,7 @@ public class Main {
     }
 
 
-    private int indexOfDSwitch(String commandLineArgs) {
+    private int indexOfSwitch(String commandLineArgs) {
         return commandLineArgs.indexOf(SWITCH_FOR_DICTIONARY);
     }
 
@@ -91,7 +91,7 @@ public class Main {
     public DictionaryRepository getDictionaryRepository(String dictionaryFile) {
 
         DictionaryRepository dictionaryRepository = new DictionaryRepositoryImpl();
-        dictionaryRepository.setDictionaryProvider(dictionaryProvider(dictionaryFile));
+        dictionaryRepository.setDictionaryReader(dictionaryProvider(dictionaryFile));
         dictionaryRepository.setPhoneNumberRepository(DefaultPhoneNumberRepositoryFactory.getInstance());
 
         return dictionaryRepository;

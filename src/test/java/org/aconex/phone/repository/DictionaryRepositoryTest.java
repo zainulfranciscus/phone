@@ -10,6 +10,8 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static org.aconex.phone.domain.DictionaryWordTest.NUMBER_46;
+import static org.aconex.phone.domain.DictionaryWordTest.THE_WORD_GO;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -18,23 +20,19 @@ import static org.mockito.Mockito.*;
  */
 public class DictionaryRepositoryTest {
 
-    public static final String A_WORD_CALLED_GO = "Go";
     private DictionaryRepository dictionaryRepository;
-    public static final String PHONE_NUMBER_46 = "46";
 
     @Before
     public void setup() {
-
         dictionaryRepository = new DictionaryRepositoryImpl();
-
     }
 
     @Test
     public void testSetDataSourceProvider() {
 
         DictionaryReader provider = new ClassLoaderDictionaryReader();
-        dictionaryRepository.setDictionaryProvider(provider);
-        assertEquals(provider, dictionaryRepository.getDictionaryProvider());
+        dictionaryRepository.setDictionaryReader(provider);
+        assertEquals(provider, dictionaryRepository.getDictionaryReader());
     }
 
     @Test
@@ -45,19 +43,19 @@ public class DictionaryRepositoryTest {
         when(mockProvider.iterator()).thenReturn(mockIterator);
 
 
-        when(mockIterator.next()).thenReturn(A_WORD_CALLED_GO,null);
+        when(mockIterator.next()).thenReturn(THE_WORD_GO,null);
 
         PhoneNumberRepository mockPhoneNumberRepository = mock(PhoneNumberRepository.class);
-        when(mockPhoneNumberRepository.convertWordToNumber(A_WORD_CALLED_GO)).thenReturn(PHONE_NUMBER_46);
+        when(mockPhoneNumberRepository.convertWordToNumber(THE_WORD_GO)).thenReturn(NUMBER_46);
 
-        dictionaryRepository.setDictionaryProvider(mockProvider);
+        dictionaryRepository.setDictionaryReader(mockProvider);
         dictionaryRepository.setPhoneNumberRepository(mockPhoneNumberRepository);
-        List<DictionaryWord> words = dictionaryRepository.findWordThatMatchesPhoneNumber(PHONE_NUMBER_46);
+        List<DictionaryWord> words = dictionaryRepository.findWordThatMatchesPhoneNumber(NUMBER_46);
 
         assertEquals(1,words.size());
-        assertEquals(A_WORD_CALLED_GO, words.get(0).getWord());
+        assertEquals(THE_WORD_GO, words.get(0).getWord());
 
-        verify(mockPhoneNumberRepository,times(1)).convertWordToNumber(A_WORD_CALLED_GO);
+        verify(mockPhoneNumberRepository,times(1)).convertWordToNumber(THE_WORD_GO);
 
         verify(mockIterator,times(2)).next();
 

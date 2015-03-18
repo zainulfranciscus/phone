@@ -22,12 +22,16 @@ public class ClassLoaderDictionaryReader extends FileBasedDictionaryReader {
         if (!fileExist()) {
             return null;
         }
-        return new InputStreamReader(getClass().getClassLoader().getResourceAsStream(fileInClasspath));
+        return new InputStreamReader(getClassLoader().getResourceAsStream(fileInClasspath));
     }
 
     @Override
     public boolean fileExist() {
-        return this.getClass().getClassLoader().getResource(fileInClasspath) != null;
+        return getClassLoader().getResource(fileInClasspath) != null;
+    }
+
+    private ClassLoader getClassLoader(){
+        return getClass().getClassLoader();
     }
 
 }

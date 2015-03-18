@@ -16,8 +16,8 @@ public class DictionaryWordTest {
 
     private DictionaryWord dictionary;
 
-    private static final String THE_WORD_GO = "GO";
-    private static final String NUMBER_46 = "46";
+    public static final String THE_WORD_GO = "GO";
+    public static final String NUMBER_46 = "46";
 
 
     @Before
@@ -35,11 +35,6 @@ public class DictionaryWordTest {
         assertEquals(NUMBER_46, dictionary.getPhoneNumberRepresentation());
     }
 
-    @Test
-    public void shouldBeReplacedWithGoEvenWhenThereIsSpacesIn46() {
-        assertEquals(THE_WORD_GO, dictionary.encodePhoneNumberWithLetters("4 6 "));
-
-    }
 
     @Test
     public void twoWordsAreNotEqualIfTheyHaveDifferentPhoneNumbers() {
@@ -96,7 +91,5 @@ public class DictionaryWordTest {
         String expectedResult = "22-GO-88";
         assertEquals(expectedResult, dictionary.replaceDoubleDashWithSingleDash("22--GO--88"));
     }
-
-
 
 }

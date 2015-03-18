@@ -1,15 +1,18 @@
 package org.aconex.phone.repository.impl;
 
 
+import org.aconex.phone.domain.DictionaryWord;
 import org.aconex.phone.repository.PhoneNumberRepository;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
-import static org.aconex.phone.domain.DictionaryWord.removePunctuationsFromPhoneNumber;
-import static org.aconex.phone.domain.DictionaryWord.removeWhiteSpaces;
+import static org.aconex.phone.domain.DictionaryWord.PUNCTUATIONS;
+import static org.aconex.phone.domain.DictionaryWord.removePunctuationAndWhiteSpace;
 
-/**
+/*/*
  * Created by Zainul Franciscus on 14/03/2015.
  */
 public class PhoneNumberRepositoryImpl implements PhoneNumberRepository {
@@ -17,7 +20,7 @@ public class PhoneNumberRepositoryImpl implements PhoneNumberRepository {
     private Map<String, Integer> mapOfLettersToPhoneNumber = new HashMap<String, Integer>();
 
     @Override
-    public void associateLetterForNumber(String letter, int phoneNumber) {
+    public void associateLetterWithNumber(String letter, int phoneNumber) {
         mapOfLettersToPhoneNumber.put(letter.toUpperCase(), phoneNumber);
 
     }
@@ -30,14 +33,18 @@ public class PhoneNumberRepositoryImpl implements PhoneNumberRepository {
     @Override
     public String convertWordToNumber(String word) {
 
-        word = removePunctuationsFromPhoneNumber(word);
-        word = removeWhiteSpaces(word);
-
         StringBuilder builder = new StringBuilder();
 
         for (Character c : word.toCharArray()) {
 
-            builder.append(findNumber(String.valueOf(c)));
+            Integer number = findNumber(String.valueOf(c));
+
+            if(number == null){
+                continue;
+            }
+
+            builder.append(number.intValue());
+
         }
 
         return builder.toString();

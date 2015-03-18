@@ -2,9 +2,11 @@ package org.aconex.phone.repository;
 
 import org.aconex.phone.domain.DictionaryWord;
 import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import static org.aconex.phone.domain.DictionaryWordTest.NUMBER_46;
+import static org.aconex.phone.domain.DictionaryWordTest.THE_WORD_GO;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -12,31 +14,28 @@ import static org.junit.Assert.assertEquals;
  */
 public class PhoneNumberRepositoryTest {
 
-    private PhoneNumberRepository repository;
-    private int phoneNumber = 2;
+    private static PhoneNumberRepository repository;
+
     private static final int NUMBER_4 = 4;
     private static final int NUMBER_6 = 6;
     private static final String LETTER_G = "G";
     private static final String LETTER_O = "O";
-    private static final String WORD_GO = LETTER_G + LETTER_O;
-    private static final String NUMBER_46 = NUMBER_4 + "" + NUMBER_6;
 
-    @Before
-    public void setup(){
+    @BeforeClass
+    public static void setup(){
         repository = DefaultPhoneNumberRepositoryFactory.getInstance();
-        repository.associateLetterForNumber(LETTER_G, NUMBER_4);
-        repository.associateLetterForNumber(LETTER_O, NUMBER_6);
+        repository.associateLetterWithNumber(LETTER_G, NUMBER_4);
+        repository.associateLetterWithNumber(LETTER_O, NUMBER_6);
     }
 
     @Test
     public void shouldReturn6ForLetterO() {
-
         assertEquals(NUMBER_6,repository.findNumber(LETTER_O).intValue());
     }
 
     @Test
     public void goShouldBeReplacedTo46(){
-        assertEquals(NUMBER_46, repository.convertWordToNumber(WORD_GO));
+        assertEquals(NUMBER_46, repository.convertWordToNumber(THE_WORD_GO));
     }
 
     @Test
@@ -46,9 +45,7 @@ public class PhoneNumberRepositoryTest {
 
     @Test
     public void shouldIgnorePunctuationsWhenEncodingNumbers(){
-
         assertEquals(NUMBER_46, repository.convertWordToNumber("G-O"));
-
     }
 
     @Test

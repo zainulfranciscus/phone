@@ -21,7 +21,7 @@ public class PhoneFixture {
     public Set<String> convertPhoneNumber(String phoneNumber) throws Exception {
 
         DictionaryRepository dictionaryRepository = new DictionaryRepositoryImpl();
-        dictionaryRepository.setDictionaryProvider(provider);
+        dictionaryRepository.setDictionaryReader(provider);
 
         dictionaryRepository.setPhoneNumberRepository(DefaultPhoneNumberRepositoryFactory.getInstance());
 

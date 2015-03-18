@@ -23,40 +23,40 @@ public class DefaultPhoneNumberRepositoryFactory {
 
     public static PhoneNumberRepository getInstance(){
 
-        repository.associateLetterForNumber("A",PHONE_NUMBER_TWO);
-        repository.associateLetterForNumber("B",PHONE_NUMBER_TWO);
-        repository.associateLetterForNumber("C",PHONE_NUMBER_TWO);
+        repository.associateLetterWithNumber("A", PHONE_NUMBER_TWO);
+        repository.associateLetterWithNumber("B", PHONE_NUMBER_TWO);
+        repository.associateLetterWithNumber("C", PHONE_NUMBER_TWO);
 
-        repository.associateLetterForNumber("D",PHONE_NUMBER_THREE);
-        repository.associateLetterForNumber("E",PHONE_NUMBER_THREE);
-        repository.associateLetterForNumber("F",PHONE_NUMBER_THREE);
+        repository.associateLetterWithNumber("D", PHONE_NUMBER_THREE);
+        repository.associateLetterWithNumber("E", PHONE_NUMBER_THREE);
+        repository.associateLetterWithNumber("F", PHONE_NUMBER_THREE);
 
-        repository.associateLetterForNumber("G",PHONE_NUMBER_FOUR);
-        repository.associateLetterForNumber("H",PHONE_NUMBER_FOUR);
-        repository.associateLetterForNumber("I",PHONE_NUMBER_FOUR);
+        repository.associateLetterWithNumber("G", PHONE_NUMBER_FOUR);
+        repository.associateLetterWithNumber("H", PHONE_NUMBER_FOUR);
+        repository.associateLetterWithNumber("I", PHONE_NUMBER_FOUR);
 
-        repository.associateLetterForNumber("J",PHONE_NUMBER_FIVE);
-        repository.associateLetterForNumber("K",PHONE_NUMBER_FIVE);
-        repository.associateLetterForNumber("L",PHONE_NUMBER_FIVE);
+        repository.associateLetterWithNumber("J", PHONE_NUMBER_FIVE);
+        repository.associateLetterWithNumber("K", PHONE_NUMBER_FIVE);
+        repository.associateLetterWithNumber("L", PHONE_NUMBER_FIVE);
 
-        repository.associateLetterForNumber("M",PHONE_NUMBER_SIX);
-        repository.associateLetterForNumber("N",PHONE_NUMBER_SIX);
-        repository.associateLetterForNumber("O",PHONE_NUMBER_SIX);
+        repository.associateLetterWithNumber("M", PHONE_NUMBER_SIX);
+        repository.associateLetterWithNumber("N", PHONE_NUMBER_SIX);
+        repository.associateLetterWithNumber("O", PHONE_NUMBER_SIX);
 
-        repository.associateLetterForNumber("P",PHONE_NUMBER_SEVEN);
-        repository.associateLetterForNumber("Q",PHONE_NUMBER_SEVEN);
-        repository.associateLetterForNumber("R",PHONE_NUMBER_SEVEN);
-        repository.associateLetterForNumber("S",PHONE_NUMBER_SEVEN);
+        repository.associateLetterWithNumber("P", PHONE_NUMBER_SEVEN);
+        repository.associateLetterWithNumber("Q", PHONE_NUMBER_SEVEN);
+        repository.associateLetterWithNumber("R", PHONE_NUMBER_SEVEN);
+        repository.associateLetterWithNumber("S", PHONE_NUMBER_SEVEN);
 
-        repository.associateLetterForNumber("T",PHONE_NUMBER_EIGHT);
-        repository.associateLetterForNumber("U",PHONE_NUMBER_EIGHT);
-        repository.associateLetterForNumber("V",PHONE_NUMBER_EIGHT);
+        repository.associateLetterWithNumber("T", PHONE_NUMBER_EIGHT);
+        repository.associateLetterWithNumber("U", PHONE_NUMBER_EIGHT);
+        repository.associateLetterWithNumber("V", PHONE_NUMBER_EIGHT);
 
 
-        repository.associateLetterForNumber("W",PHONE_NUMBER_NINE);
-        repository.associateLetterForNumber("X",PHONE_NUMBER_NINE);
-        repository.associateLetterForNumber("Y",PHONE_NUMBER_NINE);
-        repository.associateLetterForNumber("Z",PHONE_NUMBER_NINE);
+        repository.associateLetterWithNumber("W", PHONE_NUMBER_NINE);
+        repository.associateLetterWithNumber("X", PHONE_NUMBER_NINE);
+        repository.associateLetterWithNumber("Y", PHONE_NUMBER_NINE);
+        repository.associateLetterWithNumber("Z", PHONE_NUMBER_NINE);
 
 
         return repository;

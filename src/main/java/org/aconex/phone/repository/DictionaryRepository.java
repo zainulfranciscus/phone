@@ -10,9 +10,9 @@ import java.util.List;
  */
 public interface DictionaryRepository {
 
-    void setDictionaryProvider(DictionaryReader dictionaryReader);
+    void setDictionaryReader(DictionaryReader dictionaryReader);
 
-    DictionaryReader getDictionaryProvider();
+    DictionaryReader getDictionaryReader();
 
     List<DictionaryWord> findWordThatMatchesPhoneNumber(String phoneNumber) throws Exception;
 
