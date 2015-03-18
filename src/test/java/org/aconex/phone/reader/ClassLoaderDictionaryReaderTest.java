@@ -10,10 +10,10 @@ import static org.junit.Assert.*;
  */
 public class ClassLoaderDictionaryReaderTest extends FileBasedDictionaryProviderTest{
 
-    FileBasedDictionaryReader provider = new ClassLoaderDictionaryReader();
+    AbstractReader provider = new ClassLoaderDictionaryReader();
 
     @Override
-    public FileBasedDictionaryReader provider() {
+    public AbstractReader provider() {
 
         provider.sourceOfData(DICTIONARY_FILE_THAT_EXIST);
         return provider;

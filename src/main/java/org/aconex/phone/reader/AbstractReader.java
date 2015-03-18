@@ -1,14 +1,17 @@
 package org.aconex.phone.reader;
 
+import org.aconex.phone.reader.iterator.AbstractIterator;
+import org.aconex.phone.reader.iterator.FileIterator;
+
 import java.io.*;
 
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public abstract class FileBasedDictionaryReader implements DictionaryReader {
+public abstract class AbstractReader implements DictionaryReader {
 
     @Override
-    public DictionaryIterator iterator() throws Exception {
+    public AbstractIterator iterator() throws Exception {
 
 
         final BufferedReader br = new BufferedReader(reader());

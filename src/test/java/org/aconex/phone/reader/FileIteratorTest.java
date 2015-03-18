@@ -1,5 +1,6 @@
 package org.aconex.phone.reader;
 
+import org.aconex.phone.reader.iterator.FileIterator;
 import org.junit.Before;
 import org.junit.Test;
 

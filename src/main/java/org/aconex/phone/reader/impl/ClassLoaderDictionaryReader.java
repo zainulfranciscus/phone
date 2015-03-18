@@ -1,14 +1,13 @@
 package org.aconex.phone.reader.impl;
 
 import java.io.*;
-import java.net.URL;
 
-import org.aconex.phone.reader.FileBasedDictionaryReader;
+import org.aconex.phone.reader.AbstractReader;
 
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public class ClassLoaderDictionaryReader extends FileBasedDictionaryReader {
+public class ClassLoaderDictionaryReader extends AbstractReader {
 
     private String fileInClasspath;
 

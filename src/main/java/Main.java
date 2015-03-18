@@ -1,12 +1,14 @@
 import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
 import org.aconex.phone.reader.DictionaryReader;
+import org.aconex.phone.reader.UserInputReader;
 import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
-import org.aconex.phone.reader.impl.FileDictionaryReader;
+import org.aconex.phone.reader.impl.FileReader;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
 import org.aconex.phone.service.PhoneNumberEncoderService;
 import org.aconex.phone.service.impl.PhoneNumberEncoderServiceImpl;
 
+import java.util.List;
 import java.util.SortedSet;
 
 /**
@@ -14,67 +16,38 @@ import java.util.SortedSet;
  */
 public class Main {
 
-    public static final String SWITCH_FOR_DICTIONARY = "-d";
 
     public static void main(String[] args) throws Exception {
         System.out.println("Enter a phone number followed by a -d to specify a file that contains words. E.g: 0411112222 -d C:\\dictionary.txt");
 
-        Main main = new Main();
         String userInput = System.console().readLine();
+        UserInputReader userInputReader = new UserInputReader(userInput);
 
-        String phoneNumber = main.phoneNumberFromConsoleInput(userInput);
-        String dictionary = main.dictionaryFileFromConsoleInput(userInput);
+        List<String> phoneNumbers =  userInputReader.phoneNumbers();
+        if(phoneNumbers.size() == 0) {
+            System.out.println("No phone numbers specified. Program will exit");
+            return;
+        }
+
+        String dictionary = userInputReader.dictionaryFileFromConsoleInput();
+
+        Main main = new Main();
 
         PhoneNumberEncoderService phoneNumberEncoderService = new PhoneNumberEncoderServiceImpl();
         phoneNumberEncoderService.setDictionaryRepository(main.getDictionaryRepository(dictionary));
 
-        SortedSet<String> encodedPhoneNumbers = phoneNumberEncoderService.encode(phoneNumber);
-
-        encodedPhoneNumbers.forEach(encodedPhoneNumber -> System.out.println(encodedPhoneNumber));
-
+        for(String phoneNumber: phoneNumbers) {
+            SortedSet<String> encodedPhoneNumbers = phoneNumberEncoderService.encode(phoneNumber);
+            System.out.println(phoneNumber.trim() + " can be encoded to : ");
+            encodedPhoneNumbers.forEach(encodedPhoneNumber -> System.out.println(encodedPhoneNumber));
+        }
 
     }
 
-    public String dictionaryFileFromConsoleInput(String commandLineArgs) {
-
-        if (commandLineArgs == null) {
-            return null;
-        }
-
-        int indexWhereDSwitchIs = indexOfSwitch(commandLineArgs);
-
-        if (indexWhereDSwitchIs == -1) {
-            return null;
-        }
-
-        int indexWhereDictionaryNameStart = indexWhereDSwitchIs + 2;
-        return commandLineArgs.substring(indexWhereDictionaryNameStart, commandLineArgs.length()).trim();
-
-    }
-
-    public String phoneNumberFromConsoleInput(String commandLineArgs) {
-
-        if (commandLineArgs == null) {
-            return null;
-        }
-
-        int indexOfDSwitch = indexOfSwitch(commandLineArgs);
-
-        if (indexOfDSwitch == -1) {
-            return commandLineArgs.trim();
-        }
-        return commandLineArgs.substring(0, indexOfDSwitch).trim();
-    }
-
-
-    private int indexOfSwitch(String commandLineArgs) {
-        return commandLineArgs.indexOf(SWITCH_FOR_DICTIONARY);
-    }
-
-    public DictionaryReader dictionaryProvider(String dictionaryFile) {
+    public DictionaryReader dictionaryReader(String dictionaryFile) {
 
         if (dictionaryFile != null) {
-            FileDictionaryReader fileDictionaryProvider = new FileDictionaryReader();
+            FileReader fileDictionaryProvider = new FileReader();
             fileDictionaryProvider.sourceOfData(dictionaryFile);
 
             if (fileDictionaryProvider.fileExist()) {
@@ -91,9 +64,10 @@ public class Main {
     public DictionaryRepository getDictionaryRepository(String dictionaryFile) {
 
         DictionaryRepository dictionaryRepository = new DictionaryRepositoryImpl();
-        dictionaryRepository.setDictionaryReader(dictionaryProvider(dictionaryFile));
+        dictionaryRepository.setDictionaryReader(dictionaryReader(dictionaryFile));
         dictionaryRepository.setPhoneNumberRepository(DefaultPhoneNumberRepositoryFactory.getInstance());
 
         return dictionaryRepository;
     }
+
 }

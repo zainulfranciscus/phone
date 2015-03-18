@@ -1,5 +1,6 @@
 package org.aconex.phone.reader;
 
+import org.aconex.phone.reader.iterator.AbstractIterator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,7 +14,7 @@ public abstract class FileBasedDictionaryProviderTest {
 
     public static final String DICTIONARY_FILE_THAT_EXIST = "words.txt";
     public static final String NON_EXISTING_FILE = "non_existing_file.txt";
-    FileBasedDictionaryReader dictionaryProvider;
+    AbstractReader dictionaryProvider;
 
     @Before
     public void setup(){
@@ -23,7 +24,7 @@ public abstract class FileBasedDictionaryProviderTest {
     @Test
     public void iteratorShouldReturn5WordsFromTestFile() throws Exception {
 
-        DictionaryIterator iterator = dictionaryProvider.iterator();
+        AbstractIterator iterator = dictionaryProvider.iterator();
         assertNotNull(iterator);
         assertEquals("Air", iterator.next());
         assertEquals("Animal", iterator.next());
@@ -47,5 +48,5 @@ public abstract class FileBasedDictionaryProviderTest {
 
 
 
-    public abstract FileBasedDictionaryReader provider();
+    public abstract AbstractReader provider();
 }

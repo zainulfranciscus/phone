@@ -1,6 +1,6 @@
 package org.aconex.phone.reader;
 
-import org.aconex.phone.reader.impl.FileDictionaryReader;
+import org.aconex.phone.reader.impl.FileReader;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -8,12 +8,12 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public class FileDictionaryReaderTest extends FileBasedDictionaryProviderTest {
+public class FileReaderTest extends FileBasedDictionaryProviderTest {
 
-    static FileBasedDictionaryReader provider = new FileDictionaryReader();
+    static AbstractReader provider = new FileReader();
 
     @Override
-    public FileBasedDictionaryReader provider() {
+    public AbstractReader provider() {
 
         String path = dictionaryForUnitTest();
         provider.sourceOfData(path);

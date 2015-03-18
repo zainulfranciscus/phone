@@ -1,7 +1,7 @@
 package org.aconex.phone.repository.impl;
 
 import org.aconex.phone.domain.DictionaryWord;
-import org.aconex.phone.reader.DictionaryIterator;
+import org.aconex.phone.reader.iterator.AbstractIterator;
 import org.aconex.phone.reader.DictionaryReader;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.PhoneNumberRepository;
@@ -21,7 +21,7 @@ public class DictionaryRepositoryImpl implements DictionaryRepository {
 
     @Override
     public List<DictionaryWord> findWordThatMatchesPhoneNumber(String phoneNumber) throws Exception {
-        DictionaryIterator iterator = dictionaryReader.iterator();
+        AbstractIterator iterator = dictionaryReader.iterator();
 
         List<DictionaryWord> matchingWords = new ArrayList<DictionaryWord>();
         String word;

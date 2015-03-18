@@ -1,6 +1,7 @@
 package org.aconex.phone.reader;
 
 import org.aconex.phone.reader.impl.InMemoryDictionaryReader;
+import org.aconex.phone.reader.iterator.AbstractIterator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,7 +24,7 @@ public class InMemoryDictionaryReaderTest {
 
         String expectedWord = "Carnival";
         inMemory.sourceOfData(expectedWord);
-        DictionaryIterator iterator = inMemory.iterator();
+        AbstractIterator iterator = inMemory.iterator();
 
         assertEquals(expectedWord,iterator.next());
         assertNull(iterator.next());

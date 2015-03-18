@@ -1,5 +1,7 @@
 package org.aconex.phone.reader;
 
+import org.aconex.phone.reader.iterator.AbstractIterator;
+
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
@@ -7,6 +9,6 @@ public interface DictionaryReader {
 
     void sourceOfData(String location);
 
-    DictionaryIterator iterator() throws Exception;
+    AbstractIterator iterator() throws Exception;
 
 }

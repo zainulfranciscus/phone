@@ -1,4 +1,4 @@
-package org.aconex.phone.reader;
+package org.aconex.phone.reader.iterator;
 
 import java.io.*;
 import java.util.Iterator;
@@ -6,7 +6,7 @@ import java.util.Iterator;
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public abstract class DictionaryIterator{
+public abstract class AbstractIterator {
 
     public abstract String next() throws Exception;
 

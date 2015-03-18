@@ -1,6 +1,6 @@
 package org.aconex.phone.reader.impl;
 
-import org.aconex.phone.reader.DictionaryIterator;
+import org.aconex.phone.reader.iterator.AbstractIterator;
 import org.aconex.phone.reader.DictionaryReader;
 
 import java.io.Closeable;
@@ -22,8 +22,8 @@ public class InMemoryDictionaryReader implements DictionaryReader {
     }
 
     @Override
-    public DictionaryIterator iterator() throws Exception {
-        return new DictionaryIterator() {
+    public AbstractIterator iterator() throws Exception {
+        return new AbstractIterator() {
 
             int index = 0;
 

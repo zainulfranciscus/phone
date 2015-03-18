@@ -48,33 +48,6 @@ public class PhoneNumberRepositoryTest {
         assertEquals(NUMBER_46, repository.convertWordToNumber("G-O"));
     }
 
-    @Test
-    public void upperCaseAToZShouldBeConvertedToANumber() {
 
-        for (char c = 'A'; c <= 'Z'; c++) {
-            String letter = String.valueOf(c);
-            String phoneNumber = repository.convertWordToNumber(letter);
-            assertEquals(repository.findNumber(letter).toString(), phoneNumber);
-        }
-    }
-
-    @Test
-    public void lowerCaseAToZShouldBeConvertedToANumber() {
-
-        for (char c = 'a'; c <= 'z'; c++) {
-
-            String letter = String.valueOf(c);
-
-            String phoneNumber = repository.convertWordToNumber(letter);
-            assertEquals(repository.findNumber(letter).toString(), phoneNumber);
-        }
-    }
-
-    @Test
-    public void punctuationsShouldBeConvertedToEmptySpace() {
-        for (String punctuation : DictionaryWord.PUNCTUATIONS) {
-            assertEquals("", repository.convertWordToNumber(String.valueOf(punctuation)));
-        }
-    }
 
 }

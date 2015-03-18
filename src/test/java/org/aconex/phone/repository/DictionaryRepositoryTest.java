@@ -1,7 +1,7 @@
 package org.aconex.phone.repository;
 
 import org.aconex.phone.domain.DictionaryWord;
-import org.aconex.phone.reader.DictionaryIterator;
+import org.aconex.phone.reader.iterator.AbstractIterator;
 import org.aconex.phone.reader.DictionaryReader;
 import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
@@ -38,7 +38,7 @@ public class DictionaryRepositoryTest {
     @Test
     public void testShouldReturnWordsThatMatchesPhoneNumber() throws Exception {
 
-        DictionaryIterator mockIterator = mock(DictionaryIterator.class);
+        AbstractIterator mockIterator = mock(AbstractIterator.class);
         DictionaryReader mockProvider = mock(DictionaryReader.class);
         when(mockProvider.iterator()).thenReturn(mockIterator);
 
