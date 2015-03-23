@@ -7,7 +7,7 @@ import org.aconex.phone.reader.AbstractReader;
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public class ClassLoaderDictionaryReader extends AbstractReader {
+public class ClassLoaderReader extends AbstractReader {
 
     private String fileInClasspath;
 

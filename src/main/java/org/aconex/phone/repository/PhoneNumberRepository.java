@@ -1,5 +1,7 @@
 package org.aconex.phone.repository;
 
+import org.aconex.phone.domain.PhoneNumber;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,5 +14,5 @@ public interface PhoneNumberRepository {
 
     Integer findNumber(String word);
 
-    String convertWordToNumber(String word);
+    PhoneNumber convertWordToNumber(String word);
 }

@@ -1,9 +1,10 @@
 package org.aconex.phone.repository;
 
+import org.aconex.phone.criteria.PhoneNumberCriteria;
 import org.aconex.phone.domain.DictionaryWord;
 import org.aconex.phone.reader.iterator.AbstractIterator;
-import org.aconex.phone.reader.DictionaryReader;
-import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
+import org.aconex.phone.reader.Reader;
+import org.aconex.phone.reader.impl.ClassLoaderReader;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,16 +31,16 @@ public class DictionaryRepositoryTest {
     @Test
     public void testSetDataSourceProvider() {
 
-        DictionaryReader provider = new ClassLoaderDictionaryReader();
-        dictionaryRepository.setDictionaryReader(provider);
-        assertEquals(provider, dictionaryRepository.getDictionaryReader());
+        Reader provider = new ClassLoaderReader();
+        dictionaryRepository.setReader(provider);
+        assertEquals(provider, dictionaryRepository.getReader());
     }
 
     @Test
     public void testShouldReturnWordsThatMatchesPhoneNumber() throws Exception {
 
         AbstractIterator mockIterator = mock(AbstractIterator.class);
-        DictionaryReader mockProvider = mock(DictionaryReader.class);
+        Reader mockProvider = mock(Reader.class);
         when(mockProvider.iterator()).thenReturn(mockIterator);
 
 
@@ -48,9 +49,9 @@ public class DictionaryRepositoryTest {
         PhoneNumberRepository mockPhoneNumberRepository = mock(PhoneNumberRepository.class);
         when(mockPhoneNumberRepository.convertWordToNumber(THE_WORD_GO)).thenReturn(NUMBER_46);
 
-        dictionaryRepository.setDictionaryReader(mockProvider);
+        dictionaryRepository.setReader(mockProvider);
         dictionaryRepository.setPhoneNumberRepository(mockPhoneNumberRepository);
-        List<DictionaryWord> words = dictionaryRepository.findWordThatMatchesPhoneNumber(NUMBER_46);
+        List<DictionaryWord> words = dictionaryRepository.findWordThatMatchesPhoneNumber(new PhoneNumberCriteria(NUMBER_46));
 
         assertEquals(1,words.size());
         assertEquals(THE_WORD_GO, words.get(0).getWord());

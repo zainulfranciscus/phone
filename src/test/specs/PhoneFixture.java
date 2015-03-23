@@ -1,5 +1,5 @@
-import org.aconex.phone.reader.DictionaryReader;
-import org.aconex.phone.reader.impl.InMemoryDictionaryReader;
+import org.aconex.phone.reader.Reader;
+import org.aconex.phone.reader.impl.InMemoryReader;
 import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
@@ -16,12 +16,12 @@ import java.util.Set;
 @RunWith(ConcordionRunner.class)
 public class PhoneFixture {
 
-    private DictionaryReader provider = new InMemoryDictionaryReader();
+    private Reader provider = new InMemoryReader();
 
     public Set<String> convertPhoneNumber(String phoneNumber) throws Exception {
 
         DictionaryRepository dictionaryRepository = new DictionaryRepositoryImpl();
-        dictionaryRepository.setDictionaryReader(provider);
+        dictionaryRepository.setReader(provider);
 
         dictionaryRepository.setPhoneNumberRepository(DefaultPhoneNumberRepositoryFactory.getInstance());
 

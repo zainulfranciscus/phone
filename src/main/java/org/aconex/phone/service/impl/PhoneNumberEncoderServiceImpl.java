@@ -1,10 +1,12 @@
 package org.aconex.phone.service.impl;
 
+import org.aconex.phone.criteria.Criteria;
+import org.aconex.phone.criteria.PhoneNumberCriteria;
 import org.aconex.phone.domain.DictionaryWord;
+import org.aconex.phone.domain.PhoneNumber;
 import org.aconex.phone.repository.DictionaryRepository;
 
 import org.aconex.phone.service.PhoneNumberEncoderService;
-
 
 
 import java.util.*;
@@ -18,21 +20,22 @@ import static org.aconex.phone.domain.DictionaryWord.*;
  */
 public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService {
 
-    private static final String REGEX_TO_FIND_2_OR_MORE_CONSECUTIVE_DIGITS = "\\d{2}";
+
     private DictionaryRepository dictionaryRepository;
 
 
     @Override
     public SortedSet<String> encode(String phoneNumber) throws Exception {
 
-        if ( phoneNumber == null || phoneNumber.trim().length() == 0) {
+        if (phoneNumber == null || phoneNumber.trim().length() == 0) {
             return new TreeSet<String>();
         }
 
-        String phoneNumberWithoutPunctuations = removePunctuationAndWhiteSpace(phoneNumber);
-        List<DictionaryWord> matchingWords = dictionaryRepository.findWordThatMatchesPhoneNumber(phoneNumberWithoutPunctuations);
+        PhoneNumber number = new PhoneNumber(phoneNumber);
+        Criteria phoneNumberCriteria = new PhoneNumberCriteria(number);
+        List<DictionaryWord> matchingWords = dictionaryRepository.findWordThatMatchesPhoneNumber(phoneNumberCriteria);
 
-        SortedSet<String> encodedNumbers = encode(phoneNumberWithoutPunctuations, matchingWords);
+        SortedSet<String> encodedNumbers = encode(number.removePunctuations().removeWhiteSpace(), matchingWords);
 
         if (encodedNumbers.size() == 0) {
             encodedNumbers.add(phoneNumber);
@@ -42,24 +45,26 @@ public class PhoneNumberEncoderServiceImpl implements PhoneNumberEncoderService 
 
     }
 
-    private SortedSet<String> encode(String phoneNumber, List<DictionaryWord> matchingWords) throws Exception {
+    private SortedSet<String> encode(PhoneNumber phoneNumber, List<DictionaryWord> matchingWords) throws Exception {
 
         SortedSet<String> encodedPhoneNumbers = new TreeSet<>();
 
-        if (matchingWords.size() == 0 && !compile(REGEX_TO_FIND_2_OR_MORE_CONSECUTIVE_DIGITS).matcher(phoneNumber).find()) {
+        if (matchingWords.size() == 0 && !phoneNumber.has2ConsecutiveDigits()) {
 
-            encodedPhoneNumbers.add(phoneNumber);
+            encodedPhoneNumbers.add(phoneNumber.removeWhiteSpace().removeDashAtTheEndOfString().removeDashAtTheStartOfAString().replaceDoubleDashWithSingleDash().toString());
 
             return encodedPhoneNumbers;
         }
 
         for (DictionaryWord word : matchingWords) {
 
+
             String encodedPhoneNumber = word.encodePhoneNumberWithLetters(phoneNumber);
 
-            List<DictionaryWord> words =  matchingWords.stream().filter(matchingWord -> matchingWord.hasMatchWith(encodedPhoneNumber)).collect(Collectors.toList());
+            Criteria phoneNumberCriteria = new PhoneNumberCriteria(new PhoneNumber(encodedPhoneNumber));
+            List<DictionaryWord> words = phoneNumberCriteria.matchList(matchingWords);
 
-            Set<String> encodedNumber = encode(encodedPhoneNumber, words);
+            Set<String> encodedNumber = encode(new PhoneNumber(encodedPhoneNumber), words);
 
             encodedPhoneNumbers.addAll(encodedNumber);
         }

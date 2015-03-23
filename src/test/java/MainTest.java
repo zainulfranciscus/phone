@@ -1,5 +1,5 @@
-import org.aconex.phone.reader.DictionaryReader;
-import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
+import org.aconex.phone.reader.Reader;
+import org.aconex.phone.reader.impl.ClassLoaderReader;
 import org.aconex.phone.reader.impl.FileReader;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.junit.Before;
@@ -44,14 +44,14 @@ public class MainTest {
 
     @Test
     public void shouldReturnAClassLoaderProviderWhenFileDoesNotExist() {
-        DictionaryReader dictionaryReader = main.dictionaryReader(NON_EXISTING_FILE);
-        assertTrue(dictionaryReader instanceof ClassLoaderDictionaryReader);
+        Reader reader = main.dictionaryReader(NON_EXISTING_FILE);
+        assertTrue(reader instanceof ClassLoaderReader);
     }
 
     @Test
     public void shouldReturnFileDictionaryProviderWhenFileExist() {
-        DictionaryReader dictionaryReader = main.dictionaryReader(dictionaryForUnitTest());
-        assertTrue(dictionaryReader instanceof FileReader);
+        Reader reader = main.dictionaryReader(dictionaryForUnitTest());
+        assertTrue(reader instanceof FileReader);
     }
 
 
@@ -60,7 +60,7 @@ public class MainTest {
     public void shouldReturnADictionaryRepository() {
         DictionaryRepository dictionaryRepository = main.getDictionaryRepository(dictionaryForUnitTest());
         assertNotNull(dictionaryRepository);
-        assertNotNull(dictionaryRepository.getDictionaryReader());
+        assertNotNull(dictionaryRepository.getReader());
 
     }
 

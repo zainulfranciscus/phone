@@ -1,7 +1,7 @@
 import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
-import org.aconex.phone.reader.DictionaryReader;
+import org.aconex.phone.reader.Reader;
 import org.aconex.phone.reader.UserInputReader;
-import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
+import org.aconex.phone.reader.impl.ClassLoaderReader;
 import org.aconex.phone.reader.impl.FileReader;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
@@ -29,7 +29,7 @@ public class Main {
             return;
         }
 
-        String dictionary = userInputReader.dictionaryFileFromConsoleInput();
+        String dictionary = userInputReader.dictionary();
 
         Main main = new Main();
 
@@ -44,7 +44,7 @@ public class Main {
 
     }
 
-    public DictionaryReader dictionaryReader(String dictionaryFile) {
+    public Reader dictionaryReader(String dictionaryFile) {
 
         if (dictionaryFile != null) {
             FileReader fileDictionaryProvider = new FileReader();
@@ -55,7 +55,7 @@ public class Main {
             }
         }
 
-        ClassLoaderDictionaryReader classLoaderDictionaryProvider = new ClassLoaderDictionaryReader();
+        ClassLoaderReader classLoaderDictionaryProvider = new ClassLoaderReader();
         classLoaderDictionaryProvider.sourceOfData("words.txt");
 
         return classLoaderDictionaryProvider;
@@ -64,7 +64,7 @@ public class Main {
     public DictionaryRepository getDictionaryRepository(String dictionaryFile) {
 
         DictionaryRepository dictionaryRepository = new DictionaryRepositoryImpl();
-        dictionaryRepository.setDictionaryReader(dictionaryReader(dictionaryFile));
+        dictionaryRepository.setReader(dictionaryReader(dictionaryFile));
         dictionaryRepository.setPhoneNumberRepository(DefaultPhoneNumberRepositoryFactory.getInstance());
 
         return dictionaryRepository;

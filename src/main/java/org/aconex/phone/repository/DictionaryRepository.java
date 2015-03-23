@@ -1,7 +1,8 @@
 package org.aconex.phone.repository;
 
+import org.aconex.phone.criteria.Criteria;
 import org.aconex.phone.domain.DictionaryWord;
-import org.aconex.phone.reader.DictionaryReader;
+import org.aconex.phone.reader.Reader;
 
 import java.util.List;
 
@@ -10,11 +11,11 @@ import java.util.List;
  */
 public interface DictionaryRepository {
 
-    void setDictionaryReader(DictionaryReader dictionaryReader);
+    void setReader(Reader reader);
 
-    DictionaryReader getDictionaryReader();
+    Reader getReader();
 
-    List<DictionaryWord> findWordThatMatchesPhoneNumber(String phoneNumber) throws Exception;
+    List<DictionaryWord> findWordThatMatchesPhoneNumber(Criteria criteria) throws Exception;
 
     void setPhoneNumberRepository(PhoneNumberRepository phoneNumberRepository);
 }

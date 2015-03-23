@@ -1,7 +1,7 @@
 package org.aconex.phone.reader.impl;
 
 import org.aconex.phone.reader.iterator.AbstractIterator;
-import org.aconex.phone.reader.DictionaryReader;
+import org.aconex.phone.reader.Reader;
 
 import java.io.Closeable;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public class InMemoryDictionaryReader implements DictionaryReader {
+public class InMemoryReader implements Reader {
 
     List<String> words = new ArrayList<String>();
 

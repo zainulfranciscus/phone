@@ -17,7 +17,7 @@ public class DictionaryWordTest {
     private DictionaryWord dictionary;
 
     public static final String THE_WORD_GO = "GO";
-    public static final String NUMBER_46 = "46";
+    public static final PhoneNumber NUMBER_46 = new PhoneNumber("46");
 
 
     @Before
@@ -32,37 +32,12 @@ public class DictionaryWordTest {
 
     @Test
     public void shouldReturn46() {
-        assertEquals(NUMBER_46, dictionary.getPhoneNumberRepresentation());
+        assertEquals(NUMBER_46, dictionary.getPhoneNumber());
     }
-
-
-    @Test
-    public void twoWordsAreNotEqualIfTheyHaveDifferentPhoneNumbers() {
-        DictionaryWord word = new DictionaryWord("54","IT");
-        assertFalse(word.equals(dictionary));
-    }
-
-    @Test
-    public void thisWordShouldHaveAMatchWithThePhoneNumber() {
-        assertTrue(dictionary.hasMatchWith(NUMBER_46));
-    }
-
-    @Test
-    public void shouldMatchWithGoEvenWithSpacesIn46() {
-        assertTrue(dictionary.hasMatchWith(" 4 6 "));
-    }
-
-
-    @Test
-    public void thisWordShouldNotHaveAMatchWithThePhoneNumber() {
-        String phoneNumber = "3334444";
-        assertFalse(dictionary.hasMatchWith(phoneNumber));
-    }
-
 
     @Test
     public void fortySixShouldBeReplacedWithGoAndADash() {
-        assertEquals("88" + DASH + THE_WORD_GO + DASH + "99", dictionary.encodePhoneNumberWithLetters("884699"));
+        assertEquals("88" + DASH + THE_WORD_GO + DASH + "99", dictionary.encodePhoneNumberWithLetters(new PhoneNumber("884699")));
     }
 
     @Test
@@ -78,18 +53,6 @@ public class DictionaryWordTest {
         assertEquals(DASH + THE_WORD_GO, dictionary.prependDash("GO"));
     }
 
-    @Test
-    public void shouldRemoveDashAtTheStartOfAString(){
-        assertEquals("34-GO", dictionary.removeDashAtTheStartOfAString("-34-GO"));
-    }
-    @Test
-    public void shouldRemoveDashAtTheEndOfAString(){
-        assertEquals("22-GO", dictionary.removeDashAtTheEndOfString("22-GO-"));
-    }
-    @Test
-    public void shouldOnlyHave1DashBetweenWords() {
-        String expectedResult = "22-GO-88";
-        assertEquals(expectedResult, dictionary.replaceDoubleDashWithSingleDash("22--GO--88"));
-    }
+
 
 }

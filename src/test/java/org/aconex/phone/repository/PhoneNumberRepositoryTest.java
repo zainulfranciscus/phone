@@ -1,6 +1,7 @@
 package org.aconex.phone.repository;
 
 import org.aconex.phone.domain.DictionaryWord;
+import org.aconex.phone.domain.PhoneNumber;
 import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -35,19 +36,46 @@ public class PhoneNumberRepositoryTest {
 
     @Test
     public void goShouldBeReplacedTo46(){
-        assertEquals(NUMBER_46, repository.convertWordToNumber(THE_WORD_GO));
+        assertEquals(NUMBER_46.toString(), repository.convertWordToNumber(THE_WORD_GO).toString());
     }
 
     @Test
     public void goWithSpacesShouldBeReplacedTo46(){
-        assertEquals(NUMBER_46, repository.convertWordToNumber(" G O "));
+        assertEquals(NUMBER_46.toString(), repository.convertWordToNumber(" G O ").toString());
     }
 
     @Test
     public void shouldIgnorePunctuationsWhenEncodingNumbers(){
-        assertEquals(NUMBER_46, repository.convertWordToNumber("G-O"));
+        assertEquals(NUMBER_46.toString(), repository.convertWordToNumber("G-O").toString());
     }
 
+    @Test
+    public void upperCaseAToZShouldBeConvertedToANumber() {
 
+        for (char c = 'A'; c <= 'Z'; c++) {
+            String letter = String.valueOf(c);
+            PhoneNumber phoneNumber = repository.convertWordToNumber(letter);
+            assertEquals(repository.findNumber(letter).toString(), phoneNumber.toString());
+        }
+    }
+
+    @Test
+    public void lowerCaseAToZShouldBeConvertedToANumber() {
+
+        for (char c = 'a'; c <= 'z'; c++) {
+
+            String letter = String.valueOf(c);
+
+            PhoneNumber phoneNumber = repository.convertWordToNumber(letter);
+            assertEquals(repository.findNumber(letter).toString(), phoneNumber.toString());
+        }
+    }
+
+    @Test
+    public void punctuationsShouldBeConvertedToEmptySpace() {
+        for (String punctuation : DictionaryWord.PUNCTUATIONS) {
+            assertEquals("", repository.convertWordToNumber(String.valueOf(punctuation)).toString());
+        }
+    }
 
 }

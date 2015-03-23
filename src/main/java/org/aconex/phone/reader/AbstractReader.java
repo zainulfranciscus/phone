@@ -8,7 +8,7 @@ import java.io.*;
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public abstract class AbstractReader implements DictionaryReader {
+public abstract class AbstractReader implements Reader {
 
     @Override
     public AbstractIterator iterator() throws Exception {
@@ -22,7 +22,7 @@ public abstract class AbstractReader implements DictionaryReader {
     }
 
 
-    public abstract Reader reader()throws Exception;
+    public abstract java.io.Reader reader()throws Exception;
 
     public abstract boolean fileExist();
 }

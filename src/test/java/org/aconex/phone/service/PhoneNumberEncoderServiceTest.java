@@ -1,11 +1,14 @@
 package org.aconex.phone.service;
 
 
+import org.aconex.phone.criteria.Criteria;
 import org.aconex.phone.domain.DictionaryWord;
+import org.aconex.phone.domain.PhoneNumber;
 import org.aconex.phone.repository.DictionaryRepository;
 
 import org.aconex.phone.service.impl.PhoneNumberEncoderServiceImpl;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,17 +36,17 @@ public class PhoneNumberEncoderServiceTest {
     @Test
     public void shouldBeReplacedWithGo() throws Exception {
 
-        String phoneNumber = "46";
+        PhoneNumber phoneNumber = new PhoneNumber("46");
         String wordThatMatchesPhoneNumber = "THE_WORD_GO";
 
         List<DictionaryWord> wordThatMatches46 = new ArrayList<DictionaryWord>();
         wordThatMatches46.add(new DictionaryWord(wordThatMatchesPhoneNumber, phoneNumber));
 
         DictionaryRepository mockDictionaryRepository = mock(DictionaryRepository.class);
-        when(mockDictionaryRepository.findWordThatMatchesPhoneNumber(phoneNumber)).thenReturn(wordThatMatches46);
+        when(mockDictionaryRepository.findWordThatMatchesPhoneNumber(Mockito.isA(Criteria.class))).thenReturn(wordThatMatches46);
 
         phoneNumberEncoderService.setDictionaryRepository(mockDictionaryRepository);
-        Set<String> words = phoneNumberEncoderService.encode(phoneNumber);
+        Set<String> words = phoneNumberEncoderService.encode(phoneNumber.toString());
 
         assertEquals(1,words.size());
         assertEquals(wordThatMatchesPhoneNumber,words.iterator().next());
@@ -55,7 +58,7 @@ public class PhoneNumberEncoderServiceTest {
         String phoneNumber = "88";
 
         DictionaryRepository mockDictionaryRepository = mock(DictionaryRepository.class);
-        when(mockDictionaryRepository.findWordThatMatchesPhoneNumber(phoneNumber)).thenReturn(new ArrayList<DictionaryWord>());
+        when(mockDictionaryRepository.findWordThatMatchesPhoneNumber(Mockito.isA(Criteria.class))).thenReturn(new ArrayList<DictionaryWord>());
 
         phoneNumberEncoderService.setDictionaryRepository(mockDictionaryRepository);
         Set<String> words = phoneNumberEncoderService.encode(phoneNumber);

@@ -1,6 +1,6 @@
 package org.aconex.phone.reader;
 
-import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
+import org.aconex.phone.reader.impl.ClassLoaderReader;
 import org.aconex.phone.reader.iterator.AbstractIterator;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNull;
 public class UserInputReaderTest {
 
     private static final String EXPECTED_DICTIONARY_NAME = "dictionary.txt";
-    private static final String FIRST_FILE_THAT_CONTAINS_PHONE_NUMBERS = "phone1.txt";
+    private static final String FILE_THAT_CONTAINS_PHONE_NUMBERS = "phone.txt";
     private static final String EMPTY_SPACE = " ";
     private static final String EXPECTED_PHONE_NUMBER = "041112222";
 
@@ -28,21 +28,21 @@ public class UserInputReaderTest {
 
     @Before
     public void setup(){
-        switchForDictionary = UserInputReader.Switch.DICTIONARY.getValue();
-        switchForPhone = UserInputReader.Switch.PHONE.getValue();
+        switchForDictionary = UserInputReader.Switch.DICTIONARY_SWITCH.getValue();
+        switchForPhone = UserInputReader.Switch.PHONE_SWITCH.getValue();
     }
 
     @Test
     public void shouldReturnNameOfDictionary() {
         reader = new UserInputReader(switchForDictionary+ EXPECTED_DICTIONARY_NAME);
-        String nameOfDictionary = reader.dictionaryFileFromConsoleInput();
+        String nameOfDictionary = reader.dictionary();
         assertEquals(EXPECTED_DICTIONARY_NAME, nameOfDictionary);
     }
 
     @Test
     public void shouldReturnNameOfDictionaryWithoutSpaces() {
         reader = new UserInputReader(switchForDictionary + EMPTY_SPACE + EXPECTED_DICTIONARY_NAME);
-        String nameOfDictionary = reader.dictionaryFileFromConsoleInput();
+        String nameOfDictionary = reader.dictionary();
         assertEquals(EXPECTED_DICTIONARY_NAME, nameOfDictionary);
     }
 
@@ -50,7 +50,7 @@ public class UserInputReaderTest {
     public void shouldReturnNullWhenNoDictionaryNameIsProvided() {
 
         reader = new UserInputReader("0455551111");
-        String nameOfDictionary = reader.dictionaryFileFromConsoleInput();
+        String nameOfDictionary = reader.dictionary();
         assertNull(nameOfDictionary);
 
     }
@@ -58,7 +58,7 @@ public class UserInputReaderTest {
     @Test
     public void shouldReturnNullWhenCommandLineArgsIsNull(){
         reader = new UserInputReader(null);
-        String nameOfDictionary = reader.dictionaryFileFromConsoleInput();
+        String nameOfDictionary = reader.dictionary();
         assertNull(nameOfDictionary);
     }
 
@@ -98,13 +98,13 @@ public class UserInputReaderTest {
     @Test
     public void shouldReturnContentOfPhone1Txt() throws Exception {
 
-        ClassLoaderDictionaryReader classLoaderDictionaryReader = new ClassLoaderDictionaryReader();
-        classLoaderDictionaryReader.sourceOfData(FIRST_FILE_THAT_CONTAINS_PHONE_NUMBERS);
+        ClassLoaderReader classLoaderDictionaryReader = new ClassLoaderReader();
+        classLoaderDictionaryReader.sourceOfData(FILE_THAT_CONTAINS_PHONE_NUMBERS);
 
         AbstractIterator iterator = classLoaderDictionaryReader.iterator();
 
-        String phone1 = ClassLoader.getSystemClassLoader().getSystemResource(FIRST_FILE_THAT_CONTAINS_PHONE_NUMBERS).getPath();
-        reader = new UserInputReader(switchForPhone + phone1);
+        String phoneTxtFile = ClassLoader.getSystemClassLoader().getSystemResource(FILE_THAT_CONTAINS_PHONE_NUMBERS).getPath();
+        reader = new UserInputReader(switchForPhone + phoneTxtFile);
         List<String> phoneNumbers = reader.phoneNumbers();
 
         assertNotNull(phoneNumbers);
@@ -116,6 +116,14 @@ public class UserInputReaderTest {
             assertEquals(phoneNumber, phoneNumbers.get(index));
             index += 1;
         }
+    }
+
+    @Test
+    public void shouldReturnAnEmptyListOfPhoneNumbers() throws Exception {
+        reader = new UserInputReader(switchForPhone + "non-existing-file.txt");
+        List<String> phoneNumbers = reader.phoneNumbers();
+        assertEquals(0,phoneNumbers.size());
+
     }
 
 }

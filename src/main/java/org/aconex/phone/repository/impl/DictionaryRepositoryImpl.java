@@ -1,8 +1,10 @@
 package org.aconex.phone.repository.impl;
 
+import org.aconex.phone.criteria.Criteria;
 import org.aconex.phone.domain.DictionaryWord;
+import org.aconex.phone.domain.PhoneNumber;
 import org.aconex.phone.reader.iterator.AbstractIterator;
-import org.aconex.phone.reader.DictionaryReader;
+import org.aconex.phone.reader.Reader;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.PhoneNumberRepository;
 
@@ -14,24 +16,23 @@ import java.util.List;
  */
 public class DictionaryRepositoryImpl implements DictionaryRepository {
 
-
-    private DictionaryReader dictionaryReader;
+    private Reader reader;
     private PhoneNumberRepository phoneNumberRepository;
 
 
     @Override
-    public List<DictionaryWord> findWordThatMatchesPhoneNumber(String phoneNumber) throws Exception {
-        AbstractIterator iterator = dictionaryReader.iterator();
+    public List<DictionaryWord> findWordThatMatchesPhoneNumber(Criteria criteria) throws Exception {
+        AbstractIterator iterator = reader.iterator();
 
         List<DictionaryWord> matchingWords = new ArrayList<DictionaryWord>();
         String word;
 
         while( (word = iterator.next()) != null) {
 
-            String number = phoneNumberRepository.convertWordToNumber(word);
-            DictionaryWord dw = new DictionaryWord(word, number);
+            PhoneNumber number = phoneNumberRepository.convertWordToNumber(word);
+            DictionaryWord dw = new DictionaryWord(word,number);
 
-            if(dw.hasMatchWith(phoneNumber)) {
+            if(criteria.match(dw)) {
                 matchingWords.add(dw);
             }
 
@@ -41,14 +42,14 @@ public class DictionaryRepositoryImpl implements DictionaryRepository {
     }
 
     @Override
-    public void setDictionaryReader(DictionaryReader dictionaryReader) {
-        this.dictionaryReader = dictionaryReader;
+    public void setReader(Reader reader) {
+        this.reader = reader;
 
     }
 
     @Override
-    public DictionaryReader getDictionaryReader() {
-        return dictionaryReader;
+    public Reader getReader() {
+        return reader;
     }
 
     @Override

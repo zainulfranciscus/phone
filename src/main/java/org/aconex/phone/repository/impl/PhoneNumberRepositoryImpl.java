@@ -1,16 +1,11 @@
 package org.aconex.phone.repository.impl;
 
 
-import org.aconex.phone.domain.DictionaryWord;
+import org.aconex.phone.domain.PhoneNumber;
 import org.aconex.phone.repository.PhoneNumberRepository;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
-
-import static org.aconex.phone.domain.DictionaryWord.PUNCTUATIONS;
-import static org.aconex.phone.domain.DictionaryWord.removePunctuationAndWhiteSpace;
 
 /*/*
  * Created by Zainul Franciscus on 14/03/2015.
@@ -31,7 +26,7 @@ public class PhoneNumberRepositoryImpl implements PhoneNumberRepository {
     }
 
     @Override
-    public String convertWordToNumber(String word) {
+    public PhoneNumber convertWordToNumber(String word) {
 
         StringBuilder builder = new StringBuilder();
 
@@ -47,6 +42,6 @@ public class PhoneNumberRepositoryImpl implements PhoneNumberRepository {
 
         }
 
-        return builder.toString();
+        return new PhoneNumber(builder.toString());
     }
 }

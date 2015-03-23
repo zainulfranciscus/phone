@@ -1,6 +1,6 @@
 package org.aconex.phone.reader;
 
-import org.aconex.phone.reader.impl.ClassLoaderDictionaryReader;
+import org.aconex.phone.reader.impl.ClassLoaderReader;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,9 +8,9 @@ import static org.junit.Assert.*;
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public class ClassLoaderDictionaryReaderTest extends FileBasedDictionaryProviderTest{
+public class ClassLoaderReaderTest extends FileBasedDictionaryProviderTest{
 
-    AbstractReader provider = new ClassLoaderDictionaryReader();
+    AbstractReader provider = new ClassLoaderReader();
 
     @Override
     public AbstractReader provider() {
