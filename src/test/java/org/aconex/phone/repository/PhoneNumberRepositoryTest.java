@@ -1,10 +1,11 @@
 package org.aconex.phone.repository;
 
 import org.aconex.phone.domain.DictionaryWord;
-import org.aconex.phone.domain.PhoneNumber;
-import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
+import org.aconex.phone.repository.impl.PhoneNumberRepositoryImpl;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.io.IOException;
 
 import static org.aconex.phone.domain.DictionaryWordTest.NUMBER_46;
 import static org.aconex.phone.domain.DictionaryWordTest.THE_WORD_GO;
@@ -24,55 +25,27 @@ public class PhoneNumberRepositoryTest {
 
     @BeforeClass
     public static void setup(){
-        repository = DefaultPhoneNumberRepositoryFactory.getInstance();
-        repository.associateLetterWithNumber(LETTER_G, NUMBER_4);
-        repository.associateLetterWithNumber(LETTER_O, NUMBER_6);
+        repository = new PhoneNumberRepositoryImpl();
     }
 
-    @Test
-    public void shouldReturn6ForLetterO() {
-        assertEquals(NUMBER_6,repository.findNumber(LETTER_O).intValue());
-    }
 
     @Test
-    public void goShouldBeReplacedTo46(){
+    public void goShouldBeReplacedTo46() throws IOException {
         assertEquals(NUMBER_46.toString(), repository.convertWordToNumber(THE_WORD_GO).toString());
     }
 
     @Test
-    public void goWithSpacesShouldBeReplacedTo46(){
+    public void goWithSpacesShouldBeReplacedTo46() throws IOException {
         assertEquals(NUMBER_46.toString(), repository.convertWordToNumber(" G O ").toString());
     }
 
     @Test
-    public void shouldIgnorePunctuationsWhenEncodingNumbers(){
+    public void shouldIgnorePunctuationsWhenEncodingNumbers() throws IOException {
         assertEquals(NUMBER_46.toString(), repository.convertWordToNumber("G-O").toString());
     }
 
     @Test
-    public void upperCaseAToZShouldBeConvertedToANumber() {
-
-        for (char c = 'A'; c <= 'Z'; c++) {
-            String letter = String.valueOf(c);
-            PhoneNumber phoneNumber = repository.convertWordToNumber(letter);
-            assertEquals(repository.findNumber(letter).toString(), phoneNumber.toString());
-        }
-    }
-
-    @Test
-    public void lowerCaseAToZShouldBeConvertedToANumber() {
-
-        for (char c = 'a'; c <= 'z'; c++) {
-
-            String letter = String.valueOf(c);
-
-            PhoneNumber phoneNumber = repository.convertWordToNumber(letter);
-            assertEquals(repository.findNumber(letter).toString(), phoneNumber.toString());
-        }
-    }
-
-    @Test
-    public void punctuationsShouldBeConvertedToEmptySpace() {
+    public void punctuationsShouldBeConvertedToEmptySpace() throws IOException {
         for (String punctuation : DictionaryWord.PUNCTUATIONS) {
             assertEquals("", repository.convertWordToNumber(String.valueOf(punctuation)).toString());
         }

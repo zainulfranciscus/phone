@@ -14,7 +14,7 @@ import java.io.Console;
 
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.TestCase.*;
-import static org.aconex.phone.reader.FileBasedDictionaryProviderTest.NON_EXISTING_FILE;
+import static org.aconex.phone.reader.AbstractReaderTest.NON_EXISTING_FILE;
 import static org.aconex.phone.reader.FileReaderTest.dictionaryForUnitTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;

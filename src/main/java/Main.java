@@ -1,10 +1,10 @@
-import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
 import org.aconex.phone.reader.Reader;
 import org.aconex.phone.reader.UserInputReader;
 import org.aconex.phone.reader.impl.ClassLoaderReader;
 import org.aconex.phone.reader.impl.FileReader;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
+import org.aconex.phone.repository.impl.PhoneNumberRepositoryImpl;
 import org.aconex.phone.service.PhoneNumberEncoderService;
 import org.aconex.phone.service.impl.PhoneNumberEncoderServiceImpl;
 
@@ -65,7 +65,7 @@ public class Main {
 
         DictionaryRepository dictionaryRepository = new DictionaryRepositoryImpl();
         dictionaryRepository.setReader(dictionaryReader(dictionaryFile));
-        dictionaryRepository.setPhoneNumberRepository(DefaultPhoneNumberRepositoryFactory.getInstance());
+        dictionaryRepository.setPhoneNumberRepository(new PhoneNumberRepositoryImpl());
 
         return dictionaryRepository;
     }

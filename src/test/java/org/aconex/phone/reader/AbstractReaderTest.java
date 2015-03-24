@@ -10,7 +10,7 @@ import static org.junit.Assert.assertFalse;
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public abstract class FileBasedDictionaryProviderTest {
+public abstract class AbstractReaderTest {
 
     public static final String DICTIONARY_FILE_THAT_EXIST = "words.txt";
     public static final String NON_EXISTING_FILE = "non_existing_file.txt";
@@ -18,7 +18,7 @@ public abstract class FileBasedDictionaryProviderTest {
 
     @Before
     public void setup(){
-        dictionaryProvider = provider();
+        dictionaryProvider = reader();
     }
 
     @Test
@@ -48,5 +48,5 @@ public abstract class FileBasedDictionaryProviderTest {
 
 
 
-    public abstract AbstractReader provider();
+    public abstract AbstractReader reader();
 }

@@ -8,16 +8,16 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public class FileReaderTest extends FileBasedDictionaryProviderTest {
+public class FileReaderTest extends AbstractReaderTest {
 
-    static AbstractReader provider = new FileReader();
+    static AbstractReader reader = new FileReader();
 
     @Override
-    public AbstractReader provider() {
+    public AbstractReader reader() {
 
         String path = dictionaryForUnitTest();
-        provider.sourceOfData(path);
-        return provider;
+        reader.sourceOfData(path);
+        return reader;
     }
 
     public static String dictionaryForUnitTest(){

@@ -2,6 +2,7 @@ package org.aconex.phone.repository;
 
 import org.aconex.phone.domain.PhoneNumber;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +11,5 @@ import java.util.List;
  */
 public interface PhoneNumberRepository {
 
-    void associateLetterWithNumber(String letter, int phoneNumber);
-
-    Integer findNumber(String word);
-
-    PhoneNumber convertWordToNumber(String word);
+    PhoneNumber convertWordToNumber(String word) throws IOException;
 }

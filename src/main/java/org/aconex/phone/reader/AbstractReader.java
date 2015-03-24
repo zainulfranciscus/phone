@@ -13,7 +13,6 @@ public abstract class AbstractReader implements Reader {
     @Override
     public AbstractIterator iterator() throws Exception {
 
-
         final BufferedReader br = new BufferedReader(reader());
 
         FileIterator iterator = new FileIterator();

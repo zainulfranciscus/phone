@@ -21,12 +21,16 @@ public class ClassLoaderReader extends AbstractReader {
         if (!fileExist()) {
             return null;
         }
-        return new InputStreamReader(getClassLoader().getResourceAsStream(fileInClasspath));
+        return new InputStreamReader(getInputStream());
     }
 
     @Override
     public boolean fileExist() {
         return getClassLoader().getResource(fileInClasspath) != null;
+    }
+
+    public InputStream getInputStream(){
+        return getClassLoader().getResourceAsStream(fileInClasspath);
     }
 
     private ClassLoader getClassLoader(){

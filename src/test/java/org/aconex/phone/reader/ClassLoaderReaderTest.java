@@ -8,12 +8,12 @@ import static org.junit.Assert.*;
 /**
  * Created by Zainul Franciscus on 14/03/2015.
  */
-public class ClassLoaderReaderTest extends FileBasedDictionaryProviderTest{
+public class ClassLoaderReaderTest extends AbstractReaderTest {
 
     AbstractReader provider = new ClassLoaderReader();
 
     @Override
-    public AbstractReader provider() {
+    public AbstractReader reader() {
 
         provider.sourceOfData(DICTIONARY_FILE_THAT_EXIST);
         return provider;

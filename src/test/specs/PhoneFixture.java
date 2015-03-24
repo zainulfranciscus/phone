@@ -1,8 +1,8 @@
 import org.aconex.phone.reader.Reader;
 import org.aconex.phone.reader.impl.InMemoryReader;
-import org.aconex.phone.factory.DefaultPhoneNumberRepositoryFactory;
 import org.aconex.phone.repository.DictionaryRepository;
 import org.aconex.phone.repository.impl.DictionaryRepositoryImpl;
+import org.aconex.phone.repository.impl.PhoneNumberRepositoryImpl;
 import org.aconex.phone.service.PhoneNumberEncoderService;
 import org.aconex.phone.service.impl.PhoneNumberEncoderServiceImpl;
 import org.concordion.integration.junit4.ConcordionRunner;
@@ -23,7 +23,7 @@ public class PhoneFixture {
         DictionaryRepository dictionaryRepository = new DictionaryRepositoryImpl();
         dictionaryRepository.setReader(provider);
 
-        dictionaryRepository.setPhoneNumberRepository(DefaultPhoneNumberRepositoryFactory.getInstance());
+        dictionaryRepository.setPhoneNumberRepository(new PhoneNumberRepositoryImpl());
 
         PhoneNumberEncoderService phoneNumberEncoderService = new PhoneNumberEncoderServiceImpl();
         phoneNumberEncoderService.setDictionaryRepository(dictionaryRepository);
